@@ -1,3 +1,3 @@
 ﻿
-using var game = new TowerDefence.Game1();
+using var game = new TowerDefence.MainGame();
 game.Run();
