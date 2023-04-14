@@ -2,6 +2,9 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace TowerDefence
 {
@@ -14,7 +17,7 @@ namespace TowerDefence
         public MainGameTD mainGameTD;
 
 
-
+        List<Monster> monsters;
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -48,7 +51,7 @@ namespace TowerDefence
                 Exit();
 
             // TODO: Add your update logic here
-
+            mainGameTD.Update(gameTime);
             base.Update(gameTime);
         }
 

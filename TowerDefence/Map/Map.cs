@@ -7,6 +7,7 @@ namespace TowerDefence
 {
     public class Map
     {
+        public static Vector2 offsetMap = new Vector2(320, 50);
         public static int[,] grid;
 
 
@@ -26,7 +27,7 @@ namespace TowerDefence
 
         public void Draw()
         {
-            MainGame.spriteBatch.Draw(mapTexture, new Vector2(0,50), Color.White);
+            MainGame.spriteBatch.Draw(mapTexture, offsetMap, Color.White);
         }
     }
 }

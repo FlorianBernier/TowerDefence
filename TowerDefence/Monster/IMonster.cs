@@ -8,5 +8,25 @@ namespace TowerDefence
 {
     public interface IMonster
     {
+        // img
+        // position
+        // vitesse
+        // logique de deplacement
+
+        // add
+        // timer
+        // delete
+
+
+        // PV
+        // Mana 
+        // air
+        // sol
+        // invisible 
+
+        public void DrawMonster();
+        public void MoveMonster();
+        public void TimerMonster();
+
     }
 }
