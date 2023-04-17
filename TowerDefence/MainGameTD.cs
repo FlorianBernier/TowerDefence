@@ -32,7 +32,7 @@ namespace TowerDefence
 
         public void Initialize()
         {
-            map.Initialize();
+            
         }
 
         public void LoadContent()
