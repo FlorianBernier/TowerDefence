@@ -15,6 +15,5 @@ namespace TowerDefence
         {
             type = EMonster.FIRE;
         }
-
     }
 }
