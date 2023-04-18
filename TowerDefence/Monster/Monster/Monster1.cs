@@ -14,6 +14,7 @@ namespace TowerDefence
         public Monster1() : base() 
         {
             type = EMonster.FIRE;
+
         }
     }
 }

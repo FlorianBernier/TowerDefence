@@ -39,7 +39,7 @@ namespace TowerDefence
             grid = new int[15, 25]
             {
                 { 0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0 },
-                { 0,0,1,3,0,0,0,0,3,0,0,0,0,0,0,0,2,9,9,9,9,4,1,0,0 },
+                { 0,0,1,3,0,0,0,0,5,0,0,0,0,0,0,0,2,9,9,9,9,4,1,0,0 },
                 { 0,0,1,9,1,1,1,1,9,1,1,1,1,1,1,1,9,1,1,1,1,9,1,0,0 },
                 { 0,0,1,9,1,1,1,1,9,1,1,1,1,1,1,1,9,1,1,1,1,9,1,0,0 },
                 { 0,0,1,9,1,1,1,1,9,1,1,1,1,1,1,1,9,1,1,1,1,9,1,0,0 },
@@ -61,11 +61,11 @@ namespace TowerDefence
         {
             MainGame.spriteBatch.Draw(mapTexture, offsetMap, Color.White);
 
-            for (int i = 0; i < mapWidth; i++)
+            for (int x = 0; x < mapWidth; x++)
             {
-                for (int j = 0; j < mapHeight; j++)
+                for (int y = 0; y < mapHeight; y++)
                 {
-                    Rectangle gridPos = new Rectangle(i * 64 + (int)offsetMap.X, j * 64 + (int)offsetMap.Y, 64, 64);
+                    Rectangle gridPos = new Rectangle(x * 64 + (int)offsetMap.X, y * 64 + (int)offsetMap.Y, 64, 64);
 
                     MainGame.spriteBatch.Draw(gridTexture, gridPos, Color.White);
                 }

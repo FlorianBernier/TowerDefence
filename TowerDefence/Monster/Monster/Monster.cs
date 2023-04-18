@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Diagnostics;
 
 namespace TowerDefence
 {
@@ -8,6 +6,8 @@ namespace TowerDefence
     {
         public EMonster type;
         public Vector2 pos = MonsterDB.start_pos;
+        public int lastDir;
+        public Vector2 velocity;
 
         public Monster() 
         {
@@ -23,36 +23,63 @@ namespace TowerDefence
         {
             
 
-            int tileX = (int)((pos.X - Map.offsetMap.X) / Map.tileWidth);
+            int tileX = (int)((pos.X - Map.offsetMap.X) / Map.gridTexture.Width);
             int tileY = (int)((pos.Y - Map.offsetMap.Y) / Map.tileHeight);
 
-            
-
-
-            switch (Map.grid[tileY, tileX])
+            switch (lastDir)
             {
-                case 2:
-                    //pos.X = tileX * Map.tileWidth + Map.offsetMap.X;
-                    MonsterDB.speed[(int)type] = new Vector2(0, 3);
-                    break;
                 case 4:
-                    //pos.Y = tileY * Map.tileHeight + Map.offsetMap.Y;
-                    MonsterDB.speed[(int)type] = new Vector2(-3, 0);
-                    break;
-                case 6:
-                    //pos.Y = tileY * Map.tileHeight + Map.offsetMap.Y;
-                    MonsterDB.speed[(int)type] = new Vector2(3, 0);
+                    tileX++;
                     break;
                 case 8:
-                    //pos.X = tileX * Map.tileWidth + Map.offsetMap.X;
-                    MonsterDB.speed[(int)type] = new Vector2(0, -3);
+                    tileY++;
                     break;
 
                 default:
                     break;
             }
 
-            pos += MonsterDB.speed[(int)type];
+
+            switch (Map.grid[tileY, tileX])
+            {
+                case 2:
+                    lastDir = 2;
+                    pos.X = tileX * Map.tileWidth + Map.offsetMap.X;
+                    velocity.X = 0;
+                    velocity.Y = MonsterDB.speed[(int)type];
+                    break;
+                case 4:
+                    lastDir = 4;
+                    pos.Y = tileY * Map.tileHeight + Map.offsetMap.Y;
+                    velocity.X = MonsterDB.speed[(int)type] * -1;
+                    velocity.Y = 0;
+                    break;
+                case 6:
+                    lastDir = 6;
+                    pos.Y = tileY * Map.tileHeight + Map.offsetMap.Y;
+                    velocity.X = MonsterDB.speed[(int)type];
+                    velocity.Y = 0;
+                    break;
+                case 8:
+                    lastDir = 8;
+                    pos.X = tileX * Map.tileWidth + Map.offsetMap.X;
+                    velocity.X = 0;
+                    velocity.Y = MonsterDB.speed[(int)type] * -1;
+                    break;
+                case 3:
+                    velocity.X = 0;
+                    velocity.Y = MonsterDB.speed[(int)type];
+                    break;
+                case 5:
+                    pos.Y = tileY * Map.tileHeight + Map.offsetMap.Y;
+                    velocity.X = 0;
+                    velocity.Y = 0;
+                    break;
+                default:
+                    break;
+            }
+
+            pos += velocity;
         }
 
 

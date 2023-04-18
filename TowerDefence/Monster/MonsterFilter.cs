@@ -27,10 +27,10 @@ namespace TowerDefence
                     this.liste.Add(new Monster1());
                     break;
                 case EMonster.ICE:
-                    //this.liste.Add(new Monster2());
+                    this.liste.Add(new Monster2());
                     break;
                 case EMonster.POISON:
-                    //this.liste.Add(new Monster3());
+                    this.liste.Add(new Monster3());
                     break;
                 default:
                     throw new Exception("ERROR TYPE INCONNU");
