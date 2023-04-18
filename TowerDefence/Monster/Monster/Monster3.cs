@@ -10,7 +10,7 @@ namespace TowerDefence
     {
         public Monster3() 
         {
-        
+            type = EMonster.POISON;
         }
     }
 }

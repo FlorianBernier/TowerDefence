@@ -24,9 +24,9 @@ namespace TowerDefence
         // sol
         // invisible 
 
-        public void DrawMonster();
-        public void MoveMonster();
-        public void TimerMonster();
+        public void Draw();
+        public void Move();
+        public void Build();
 
     }
 }

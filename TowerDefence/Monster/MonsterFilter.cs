@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TowerDefence
 {
@@ -18,6 +15,26 @@ namespace TowerDefence
             this.filtred = liste;
         }
 
+
+        public MonsterFilter StartWave(MainGameTD mainGameTD)
+        {
+            if (this.liste.Count <= 0)
+            {
+                mainGameTD.waveList.ForEach(monster =>
+                {
+                    liste.Add(monster);
+                });
+            }
+            return this;
+        }
+        public void LoadWave(MainGameTD mainGameTD)
+        {
+            this.liste.ForEach(monster =>
+            {
+                mainGameTD.waveList.Add(monster);
+
+            });
+        }
 
         public MonsterFilter Add(EMonster type)
         {
@@ -50,21 +67,27 @@ namespace TowerDefence
         }
 
 
-        public MonsterFilter MoveMonsters()
+        public MonsterFilter Move()
         {
-            filtred.ForEach(monstre => monstre.MoveMonster());
+            filtred.ForEach(monstre => monstre.Move());
             return this;
         }
 
         public MonsterFilter Draw()
         {
-            filtred.ForEach(monstre => monstre.DrawMonster());
+            filtred.ForEach(monstre => monstre.Draw());
             return this;
         }
 
+        public MonsterFilter Remove()
+        {
+            liste.RemoveAll(monstre => monstre.remove);
+            return this;
+        }
 
         public List<Monster> Build()
         {
+            
             return liste;
         }
     }

@@ -1,29 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace TowerDefence
 {
     public abstract class Monster : IMonster
     {
         public EMonster type;
+        // Move
         public Vector2 pos = MonsterDB.start_pos;
-        public int lastDir;
         public Vector2 velocity;
+        public int lastDir;
+        public bool remove = false;
+        
 
         public Monster() 
         {
             
         }
 
-        public void DrawMonster()
+        public void Draw()
         {
             MainGame.spriteBatch.Draw(MonsterDB.monster_texture[(int)type],this.pos,Color.White);
         }
 
-        public void MoveMonster()
+        public void Move()
         {
-            
-
-            int tileX = (int)((pos.X - Map.offsetMap.X) / Map.gridTexture.Width);
+            int tileX = (int)((pos.X - Map.offsetMap.X) / Map.tileWidth);
             int tileY = (int)((pos.Y - Map.offsetMap.Y) / Map.tileHeight);
 
             switch (lastDir)
@@ -74,6 +76,7 @@ namespace TowerDefence
                     pos.Y = tileY * Map.tileHeight + Map.offsetMap.Y;
                     velocity.X = 0;
                     velocity.Y = 0;
+                    remove = true;
                     break;
                 default:
                     break;
@@ -82,15 +85,9 @@ namespace TowerDefence
             pos += velocity;
         }
 
-
-
-
-
-
-
-        public void TimerMonster()
+        public void Build()
         {
-
+            
         }
         
     }

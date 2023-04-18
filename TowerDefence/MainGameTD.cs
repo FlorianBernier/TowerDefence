@@ -1,12 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace TowerDefence
 {
@@ -14,6 +7,9 @@ namespace TowerDefence
     {
         private Map map;
         private GUI gui;
+
+        public List<Monster> waveList = new();
+
         private MonsterFilter monsterFilter;
         private TowerFilter towerFilter;
 
@@ -23,9 +19,15 @@ namespace TowerDefence
         {
             this.map = new Map();
             this.gui = new GUI();
+
+           
+
             this.monsterFilter = new MonsterFilter()
                 .Add(EMonster.FIRE)
-                .Add(EMonster.ICE);
+                .Add(EMonster.ICE)
+                .Add(EMonster.POISON);
+
+            
         }
 
 
@@ -39,13 +41,16 @@ namespace TowerDefence
         {
             map.LoadContent();
             gui.LoadContent();
+            monsterFilter.LoadWave(this);
         }
 
         public void Update(GameTime gameTime)
         {
             monsterFilter
                 .all()
-                    .MoveMonsters();
+                    .StartWave(this)
+                        .Move()
+                        .Remove();
         }
 
         public void Draw()
