@@ -1,17 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SharpDX.Direct3D9;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TowerDefence
 {
 
     public static class MonsterDB
     {
+        // Wave
+        public static int wave = 1;
+        public static int monsterByWave = 20;
+        public static int monsterCount = 0;
+        public static TimerMiliseconde waveTimer = new TimerMiliseconde(500);
+        public static TimerMiliseconde monsterTimer = new TimerMiliseconde(5000);
+
 
         // Position
         public static Vector2 start_pos = new Vector2(3*Map.tileWidth + Map.offsetMap.X, 1*Map.tileHeight + Map.offsetMap.Y);
@@ -32,5 +34,8 @@ namespace TowerDefence
             5, 
             8
         };
+
+        
+
     }
 }

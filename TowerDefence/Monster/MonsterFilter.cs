@@ -8,7 +8,6 @@ namespace TowerDefence
         List<Monster> liste;
         List<Monster> filtred;
 
-
         public MonsterFilter()
         { 
             this.liste = new List<Monster>();
@@ -16,25 +15,12 @@ namespace TowerDefence
         }
 
 
-        public MonsterFilter StartWave(MainGameTD mainGameTD)
+        public MonsterFilter StartWave()
         {
-            if (this.liste.Count <= 0)
-            {
-                mainGameTD.waveList.ForEach(monster =>
-                {
-                    liste.Add(monster);
-                });
-            }
+            
             return this;
         }
-        public void LoadWave(MainGameTD mainGameTD)
-        {
-            this.liste.ForEach(monster =>
-            {
-                mainGameTD.waveList.Add(monster);
-
-            });
-        }
+        
 
         public MonsterFilter Add(EMonster type)
         {
@@ -52,10 +38,6 @@ namespace TowerDefence
                 default:
                     throw new Exception("ERROR TYPE INCONNU");
             }
-
-
-
-
             return this;
         }
 
@@ -87,7 +69,6 @@ namespace TowerDefence
 
         public List<Monster> Build()
         {
-            
             return liste;
         }
     }
