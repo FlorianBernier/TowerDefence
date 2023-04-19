@@ -8,13 +8,8 @@ namespace TowerDefence
 {
     public interface IController
     {
+
         public void DrawButton();
-
-
-
-
-
-
 
     }
 }

@@ -12,9 +12,12 @@ namespace TowerDefence
 
         
         private Infos infos;
+        private TowerBuilder builder;
+        //private IController controller;
         public GUI() 
         {
             this.infos = new Infos();
+            this.builder = new TowerBuilder();
         }
 
         public void Initialize()
@@ -34,6 +37,7 @@ namespace TowerDefence
         public void Draw()
         {
             infos.Draw();
+            builder.DrawButton();
         }
 
 

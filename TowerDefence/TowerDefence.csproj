@@ -19,8 +19,14 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Font\" />
     <Folder Include="Content\Tower\" />
     <Folder Include="Menu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Content\MyFont.spritefont">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

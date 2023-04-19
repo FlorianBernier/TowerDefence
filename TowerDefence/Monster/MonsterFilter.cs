@@ -15,13 +15,6 @@ namespace TowerDefence
         }
 
 
-        public MonsterFilter StartWave()
-        {
-            
-            return this;
-        }
-        
-
         public MonsterFilter Add(EMonster type)
         {
             switch (type)

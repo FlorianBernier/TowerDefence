@@ -12,6 +12,7 @@ namespace TowerDefence
     {
         public static SpriteBatch spriteBatch;
         public static ContentManager content;
+        public static SpriteFont font;
 
         public GraphicsDeviceManager graphics;
         public MainGameTD mainGameTD;
@@ -40,6 +41,7 @@ namespace TowerDefence
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("MyFont");
 
             // TODO: use this.Content to load your game content here
             mainGameTD.LoadContent();

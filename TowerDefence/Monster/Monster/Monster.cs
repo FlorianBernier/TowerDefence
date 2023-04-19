@@ -77,6 +77,7 @@ namespace TowerDefence
                     velocity.X = 0;
                     velocity.Y = 0;
                     remove = true;
+                    StatsDB.playerPV--;
                     break;
                 default:
                     break;

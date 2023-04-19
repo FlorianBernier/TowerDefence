@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 
 namespace TowerDefence
 {
-    public class TowerBuilder
+    public class TowerBuilder : IController
     {
+        public void DrawButton()
+        {
+            for (int i = 0; i < StatsDB.builder_texture.Count; i++)
+            {
+                MainGame.spriteBatch.Draw(StatsDB.builder_texture[i], StatsDB.pos_builder_texture[i], Color.White);
+            }
+        }
     }
 }

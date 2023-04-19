@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class TowerUpgrade
+    public class TowerUpgrade : IController
     {
+        public void DrawButton()
+        {
+
+        }
     }
 }
