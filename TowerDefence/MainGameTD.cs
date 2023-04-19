@@ -38,6 +38,8 @@ namespace TowerDefence
 
         public void Update(GameTime gameTime)
         {
+            gui.Update(gameTime);
+
             monsterFilter
                 .all()
                    .Move()

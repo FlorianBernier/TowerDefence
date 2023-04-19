@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,13 @@ namespace TowerDefence
 
         
         private Infos infos;
-        private TowerBuilder builder;
-        //private IController controller;
+        private TowerBuilder towerBuilder;
+        private TowerUpgrade towerUpgrade;
         public GUI() 
         {
             this.infos = new Infos();
-            this.builder = new TowerBuilder();
+            this.towerBuilder = new TowerBuilder();
+            this.towerUpgrade = new TowerUpgrade();
         }
 
         public void Initialize()
@@ -32,12 +34,15 @@ namespace TowerDefence
 
         public void Update(GameTime gameTime)
         {
+            towerBuilder.Check();
+            towerBuilder.cafaitca();
         }
 
         public void Draw()
         {
             infos.Draw();
-            builder.DrawButton();
+            towerBuilder.DrawButton();
+            towerUpgrade.DrawButton();
         }
 
 

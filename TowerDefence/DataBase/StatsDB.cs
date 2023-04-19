@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace TowerDefence
@@ -26,7 +27,12 @@ namespace TowerDefence
         public static Vector2 posPlayerWave = new Vector2(1720, 15);
 
 
+
         // Tower Builder
+
+        // Contener
+        public static Texture2D contener_texture = MainGame.content.Load<Texture2D>("GUI/Contener");
+        public static Vector2 contener_pos = new Vector2(5,695);
 
         // Builder Texture
         public static List<Texture2D> builder_texture = new List<Texture2D>()
@@ -40,16 +46,20 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("GUI/TowerBuilder/Special2"),
         };
 
-        public static List<Vector2> pos_builder_texture = new List<Vector2>()
+        // Builder Pos
+        public static List<Vector2> builder_pos = new List<Vector2>()
         {
-            new Vector2(0,0),
-            new Vector2(450,100),
-            new Vector2(0,0),
-            new Vector2(100,100),
-            new Vector2(0,0),
-            new Vector2(100,100),
-            new Vector2(100,100)
+            new Vector2(contener_pos.X + 6, contener_pos.Y + 6),
+            new Vector2(contener_pos.X + 107, contener_pos.Y + 6 ),
+            new Vector2(contener_pos.X + 208, contener_pos.Y + 6),
+            new Vector2(contener_pos.X + 6, contener_pos.Y + 107),
+            new Vector2(contener_pos.X + 107, contener_pos.Y + 107),
+            new Vector2(contener_pos.X + 208, contener_pos.Y + 107),
+            new Vector2(contener_pos.X + 6, contener_pos.Y + 208)
         };
+
+        // Tower Upgrade
+
 
 
     }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefence
 {
@@ -10,7 +7,11 @@ namespace TowerDefence
     {
         public void DrawButton()
         {
-
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.A))
+            {
+                MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
+            }
         }
     }
 }
