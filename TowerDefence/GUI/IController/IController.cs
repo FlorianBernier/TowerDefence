@@ -9,7 +9,10 @@ namespace TowerDefence
     public interface IController
     {
 
-        public void DrawButton();
+        public void Draw();
+        public void CheckClic();
 
+        public void Afficher();
+        public void cafaitca();
     }
 }

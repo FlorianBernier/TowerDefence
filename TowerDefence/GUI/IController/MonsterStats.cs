@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class MonsterStats : IController
+    public class MonsterStats //: Controller
     {
-        public void DrawButton()
-        {
+        //public override void DrawButton()
+        
 
-        }
-
+        //public override void cafaitca()
        
+
     }
 }

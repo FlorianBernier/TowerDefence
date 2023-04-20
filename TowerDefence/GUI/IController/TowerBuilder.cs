@@ -5,19 +5,21 @@ using System.Diagnostics;
 
 namespace TowerDefence
 {
-    public class TowerBuilder : IController
+    public class TowerBuilder : Controller
     {
         public EBuilder type;
-        private int boutonCliqueIndex = -1;
+        
 
         public TowerBuilder()
         {
 
         }
 
-        public void DrawButton()
+        public override void Draw()
         {
             MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
+            MainGame.spriteBatch.Draw(StatsDB.afficher_texture, StatsDB.afficher_pos, Color.White);
+
 
             for (int i = 0; i < StatsDB.builder_texture.Count; i++)
             {
@@ -25,21 +27,65 @@ namespace TowerDefence
             }
         }
 
-        public void Check()
+        public override void Afficher()
         {
-            MouseState mouseState = Mouse.GetState();
-            // Vérifie chaque bouton du builder
-            for (int i = 0; i < StatsDB.builder_pos.Count; i++)
+            if (boutonCliqueIndex != -1)
             {
-                // Vérifie si la souris est en collision avec le bouton
-                Rectangle buttonRectangle = new Rectangle((int)StatsDB.builder_pos[i].X, (int)StatsDB.builder_pos[i].Y, StatsDB.builder_texture[i].Width, StatsDB.builder_texture[i].Height);
-                if (buttonRectangle.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed)
+                EBuilder type = (EBuilder)boutonCliqueIndex;
+                switch (type)
                 {
-                    boutonCliqueIndex = i;
+                    case EBuilder.FIRE_BUILD:
+                        for (int i = 0; i < StatsDB.fire_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.fire_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    case EBuilder.ICE_BUILD:
+                        for (int i = 0; i < StatsDB.ice_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.ice_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    case EBuilder.POISON_BUILD:
+                        for (int i = 0; i < StatsDB.poison_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.poison_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    case EBuilder.FLY_BUILD:
+                        for (int i = 0; i < StatsDB.fly_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.fly_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    case EBuilder.EARTH_BUILD:
+                        for (int i = 0; i < StatsDB.earth_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.earth_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    case EBuilder.SPECIAL1_BUILD:
+                        for (int i = 0; i < StatsDB.special1_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.special1_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    case EBuilder.SPECIAL2_BUILD:
+                        for (int i = 0; i < StatsDB.special2_infos_texture.Count; i++)
+                        {
+                            MainGame.spriteBatch.Draw(StatsDB.special2_infos_texture[i], StatsDB.infos_pos[i], Color.White);
+                        }
+                        break;
+                    default:
+                        // Si le type ne correspond à aucun constructeur
+                        Debug.WriteLine("Type de constructeur non valide");
+                        break;
                 }
+                //boutonCliqueIndex = -1;
             }
         }
-        public void cafaitca()
+
+        public override void cafaitca()
         {
             if (boutonCliqueIndex != -1)
             {
@@ -48,6 +94,7 @@ namespace TowerDefence
                 {
                     case EBuilder.FIRE_BUILD:
                         // Action pour le constructeur de feu
+
                         Debug.WriteLine("Action pour le constructeur de feu");
                         break;
                     case EBuilder.ICE_BUILD:
@@ -79,7 +126,7 @@ namespace TowerDefence
                         Debug.WriteLine("Type de constructeur non valide");
                         break;
                 }
-                boutonCliqueIndex = -1;
+                //boutonCliqueIndex = -1;
             }
         }
     }

@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TowerDefence
 {
@@ -13,13 +8,17 @@ namespace TowerDefence
 
         
         private Infos infos;
-        private TowerBuilder towerBuilder;
-        private TowerUpgrade towerUpgrade;
+        
+
+        private TowerBuilder tBuild = new();
+        private TowerUpgrade tUpgrade = new();
+
+        private IController controller;
+
         public GUI() 
         {
             this.infos = new Infos();
-            this.towerBuilder = new TowerBuilder();
-            this.towerUpgrade = new TowerUpgrade();
+
         }
 
         public void Initialize()
@@ -30,21 +29,36 @@ namespace TowerDefence
         public void LoadContent()
         {
             infos.LoadContent();
+            this.controller = tBuild;
         }
 
         public void Update(GameTime gameTime)
         {
-            towerBuilder.Check();
-            towerBuilder.cafaitca();
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.A))
+            {
+                this.controller = tUpgrade;
+            }
+            if (state.IsKeyDown(Keys.Z))
+            {
+                this.controller = tBuild;
+            }
+
+            controller.CheckClic();
+
+            controller.cafaitca();
+
+
         }
 
         public void Draw()
         {
             infos.Draw();
-            towerBuilder.DrawButton();
-            towerUpgrade.DrawButton();
+            controller.Draw();
+            controller.Afficher();
+            
+
+            //MainGame.spriteBatch.Draw(StatsDB.fire_infos_texture[0], StatsDB.infos_pos[0], Color.White);
         }
-
-
     }
 }

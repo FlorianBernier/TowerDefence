@@ -1,17 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using SharpDX.DirectWrite;
 
 namespace TowerDefence
 {
-    public class TowerUpgrade : IController
+    public class TowerUpgrade : Controller
     {
-        public void DrawButton()
+
+        public override void Draw()
         {
-            KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.A))
-            {
-                MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
-            }
+            MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
+            MainGame.spriteBatch.Draw(StatsDB.afficher_texture, StatsDB.afficher_pos, Color.White);
+
+        }
+
+        public override void Afficher()
+        {
+
+        }
+
+        public override void cafaitca()
+        {
+            
         }
     }
 }
+
+
+
+
