@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace TowerDefence
 {
     public class TowerIce : Tower
     {
-        public TowerIce() : base()
+        public TowerIce(Vector2 pos) : base(pos)
         {
             type = ETower.ICE;
         }

@@ -9,10 +9,15 @@ namespace TowerDefence
     public interface IController
     {
 
-        public void Draw();
+        public void DrawGUI();
+
+        public void DrawTowerOnMouse();
         public void CheckClic();
 
         public void Afficher();
-        public void cafaitca();
+        public void SelectCurrentButtonToDraw();
+
+        public void Update();
+
     }
 }

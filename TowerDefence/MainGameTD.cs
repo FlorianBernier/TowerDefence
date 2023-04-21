@@ -15,22 +15,19 @@ namespace TowerDefence
         public MainGameTD()
         {
             this.map = new Map();
-            this.gui = new GUI();
+            
 
             this.monsterFilter = new MonsterFilter()
+
                 .Add(EMonster.FIRE)
                 .Add(EMonster.ICE)
                 .Add(EMonster.POISON);
 
 
-            this.towerFilter = new TowerFilter()
-                .Add(ETower.FIRE)
-                .Add(ETower.ICE)
-                .Add(ETower.POISON)
-                .Add(ETower.FLY)
-                .Add(ETower.EARTH)
-                .Add(ETower.SPECIAL1)
-                .Add(ETower.SPECIAL2);
+            this.towerFilter = new TowerFilter();
+
+
+            this.gui = new GUI(towerFilter);
         }
 
 

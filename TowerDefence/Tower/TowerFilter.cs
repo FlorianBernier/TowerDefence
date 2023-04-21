@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,30 +18,30 @@ namespace TowerDefence
         }
 
 
-        public TowerFilter Add(ETower type)
+        public TowerFilter Add(ETower type, Vector2 pos)
         {
             switch (type)
             {
                 case ETower.FIRE:
-                    this.liste.Add(new TowerFire());
+                    this.liste.Add(new TowerFire(pos));
                     break;
                 case ETower.ICE:
-                    this.liste.Add(new TowerIce());
+                    this.liste.Add(new TowerIce(pos));
                     break;
                 case ETower.POISON:
-                    this.liste.Add(new TowerPoison());
+                    this.liste.Add(new TowerPoison(pos));
                     break;
                 case ETower.FLY:
-                    this.liste.Add(new TowerFly());
+                    this.liste.Add(new TowerFly(pos));
                     break;
                 case ETower.EARTH:
-                    this.liste.Add(new TowerEarth());
+                    this.liste.Add(new TowerEarth(pos));
                     break;
                 case ETower.SPECIAL1:
-                    this.liste.Add(new TowerSpecial1());
+                    this.liste.Add(new TowerSpecial1(pos));
                     break;
                 case ETower.SPECIAL2:
-                    this.liste.Add(new TowerSpecial2());
+                    this.liste.Add(new TowerSpecial2(pos));
                     break;
                 default:
                     throw new Exception("ERROR TYPE INCONNU");
@@ -63,6 +64,11 @@ namespace TowerDefence
         public List<Tower> Build()
         {
             return liste;
+        }
+
+        public bool isEmpty(int x, int y)
+        {
+            return liste.FindAll(tower => (tower.position.X == x && tower.position.Y == y)).Count > 0 ? false : true ;
         }
 
     }

@@ -8,17 +8,21 @@ namespace TowerDefence
 
         
         private Infos infos;
-        
+
+        public static TowerFilter towerFilter;
+
+
 
         private TowerBuilder tBuild = new();
         private TowerUpgrade tUpgrade = new();
 
         private IController controller;
 
-        public GUI() 
+        public GUI(TowerFilter towerFilter) 
         {
             this.infos = new Infos();
 
+            GUI.towerFilter = towerFilter;
         }
 
         public void Initialize()
@@ -46,17 +50,16 @@ namespace TowerDefence
 
             controller.CheckClic();
 
-            controller.cafaitca();
-
+            controller.Update();
 
         }
 
         public void Draw()
         {
             infos.Draw();
-            controller.Draw();
+            controller.DrawGUI();
             controller.Afficher();
-            
+            controller.DrawTowerOnMouse();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -8,14 +9,17 @@ namespace TowerDefence
     public class TowerBuilder : Controller
     {
         public EBuilder type;
-        
+
+        public EBuilder towerSelectedToDraw;
+        public bool weWantToDrawTowerOnMouse = false;
+
 
         public TowerBuilder()
         {
 
         }
 
-        public override void Draw()
+        public override void DrawGUI()
         {
             MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
             MainGame.spriteBatch.Draw(StatsDB.afficher_texture, StatsDB.afficher_pos, Color.White);
@@ -25,6 +29,26 @@ namespace TowerDefence
             {
                 MainGame.spriteBatch.Draw(StatsDB.builder_texture[i], StatsDB.builder_pos[i], Color.White);
             }
+        }
+
+        public override void DrawTowerOnMouse()
+        {
+            if (weWantToDrawTowerOnMouse)
+            {
+                MouseState mouseState = Mouse.GetState();
+                Vector2 towerPosition = new Vector2(mouseState.X - 32, mouseState.Y - 32);
+                MainGame.spriteBatch.Draw(TowerDB.tower_texture[(int)towerSelectedToDraw], towerPosition, Color.White);
+
+                
+
+                Mouse.SetCursor(MouseCursor.FromTexture2D(MainGame.mouseTransparent, 0,0));
+            }
+        }
+
+
+        public override void Update()
+        {
+            weWantToDrawTowerOnMouse = Mouse.GetState().RightButton == ButtonState.Pressed ? false : weWantToDrawTowerOnMouse;
         }
 
         public override void Afficher()
@@ -85,48 +109,23 @@ namespace TowerDefence
             }
         }
 
-        public override void cafaitca()
+        public override void SelectCurrentButtonToDraw()
         {
-            if (boutonCliqueIndex != -1)
+            weWantToDrawTowerOnMouse = towerSelectedToDraw == (EBuilder)boutonCliqueIndex ? !weWantToDrawTowerOnMouse : false;
+            towerSelectedToDraw = (EBuilder)boutonCliqueIndex;
+        }
+
+
+        public override void SelectCurrentCase()
+        {
+            if (weWantToDrawTowerOnMouse)
             {
-                EBuilder type = (EBuilder)boutonCliqueIndex;
-                switch (type)
-                {
-                    case EBuilder.FIRE_BUILD:
-                        // Action pour le constructeur de feu
-                        Debug.WriteLine("Action pour le constructeur de feu");
-                        break;
-                    case EBuilder.ICE_BUILD:
-                        // Action pour le constructeur de glace
-                        Debug.WriteLine("Action pour le constructeur de glace");
-                        break;
-                    case EBuilder.POISON_BUILD:
-                        // Action pour le constructeur de poison
-                        Debug.WriteLine("Action pour le constructeur de poison");
-                        break;
-                    case EBuilder.FLY_BUILD:
-                        // Action pour le constructeur de volants
-                        Debug.WriteLine("Action pour le constructeur de volants");
-                        break;
-                    case EBuilder.EARTH_BUILD:
-                        // Action pour le constructeur de terre
-                        Debug.WriteLine("Action pour le constructeur de terre");
-                        break;
-                    case EBuilder.SPECIAL1_BUILD:
-                        // Action pour le constructeur spécial 1
-                        Debug.WriteLine("Action pour le constructeur spécial 1");
-                        break;
-                    case EBuilder.SPECIAL2_BUILD:
-                        // Action pour le constructeur spécial 2
-                        Debug.WriteLine("Action pour le constructeur spécial 2");
-                        break;
-                    default:
-                        // Si le type ne correspond à aucun constructeur
-                        Debug.WriteLine("Type de constructeur non valide");
-                        break;
-                }
-                //boutonCliqueIndex = -1;
+                GUI.towerFilter
+                    .Add(
+                        (ETower)towerSelectedToDraw,
+                        new Vector2(caseClickedX, caseClickedY));
             }
         }
+
     }
 }

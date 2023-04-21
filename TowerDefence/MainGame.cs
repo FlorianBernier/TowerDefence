@@ -17,6 +17,7 @@ namespace TowerDefence
         public GraphicsDeviceManager graphics;
         public MainGameTD mainGameTD;
 
+        public static Texture2D mouseTransparent;
 
         List<Monster> monsters;
         public MainGame()
@@ -45,6 +46,9 @@ namespace TowerDefence
 
             // TODO: use this.Content to load your game content here
             mainGameTD.LoadContent();
+
+            mouseTransparent = new Texture2D(GraphicsDevice, 1, 1);
+            mouseTransparent.SetData(new[] { Color.Transparent });
         }
 
         protected override void Update(GameTime gameTime)
