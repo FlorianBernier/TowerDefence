@@ -57,8 +57,6 @@ namespace TowerDefence
             controller.Draw();
             controller.Afficher();
             
-
-            //MainGame.spriteBatch.Draw(StatsDB.fire_infos_texture[0], StatsDB.infos_pos[0], Color.White);
         }
     }
 }

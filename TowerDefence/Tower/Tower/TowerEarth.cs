@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public enum ETower
+    public class TowerEarth : Tower
     {
-        FIRE = 0,
-        ICE = 1,
-        POISON = 2,
-        FLYERS = 3,
-        WALKERS = 4
+        public TowerEarth() : base()
+        {
+            type = ETower.EARTH;
+        }
     }
 }

@@ -21,6 +21,16 @@ namespace TowerDefence
                 .Add(EMonster.FIRE)
                 .Add(EMonster.ICE)
                 .Add(EMonster.POISON);
+
+
+            this.towerFilter = new TowerFilter()
+                .Add(ETower.FIRE)
+                .Add(ETower.ICE)
+                .Add(ETower.POISON)
+                .Add(ETower.FLY)
+                .Add(ETower.EARTH)
+                .Add(ETower.SPECIAL1)
+                .Add(ETower.SPECIAL2);
         }
 
 
@@ -54,6 +64,10 @@ namespace TowerDefence
             monsterFilter
                 .all()
                     .Draw();
+
+            towerFilter
+                .all()
+                .Draw();
         }
     }
 }

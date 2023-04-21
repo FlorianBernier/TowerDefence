@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    internal interface ITower
+    public class TowerSpecial2 : Tower
     {
-        public void Draw();
+        public TowerSpecial2() : base()
+        {
+            type = ETower.SPECIAL2;
+        }
     }
 }

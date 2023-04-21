@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    internal interface ITower
+    public enum ETower
     {
-        public void Draw();
+        FIRE = 0,
+        ICE = 1,
+        POISON = 2,
+        FLY = 3,
+        EARTH = 4,
+        SPECIAL1 = 5,
+        SPECIAL2 = 6,
     }
 }

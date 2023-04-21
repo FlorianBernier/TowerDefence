@@ -94,7 +94,6 @@ namespace TowerDefence
                 {
                     case EBuilder.FIRE_BUILD:
                         // Action pour le constructeur de feu
-
                         Debug.WriteLine("Action pour le constructeur de feu");
                         break;
                     case EBuilder.ICE_BUILD:
