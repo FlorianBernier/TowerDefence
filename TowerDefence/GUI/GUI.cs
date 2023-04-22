@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefence
@@ -34,6 +35,7 @@ namespace TowerDefence
         {
             infos.LoadContent();
             this.controller = tBuild;
+            
         }
 
         public void Update(GameTime gameTime)
@@ -60,6 +62,7 @@ namespace TowerDefence
             controller.DrawGUI();
             controller.Afficher();
             controller.DrawTowerOnMouse();
+            MainGame.spriteBatch.Draw(StatsDB.test, new Vector2(0,0), Color.White);
         }
     }
 }

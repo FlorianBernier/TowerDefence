@@ -37,7 +37,7 @@ namespace TowerDefence
         public static Texture2D afficher_texture = MainGame.content.Load<Texture2D>("GUI/Afficher");
         public static Vector2 afficher_pos = new Vector2(0, 50);
 
-
+        public static Texture2D test = MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1");
         // TOWER BUILDER
 
         // Builder Texture
