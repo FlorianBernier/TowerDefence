@@ -62,6 +62,8 @@ namespace TowerDefence
             controller.DrawGUI();
             controller.Afficher();
             controller.DrawTowerOnMouse();
+
+            //test
             MainGame.spriteBatch.Draw(StatsDB.test, new Vector2(0,0), Color.White);
         }
     }
