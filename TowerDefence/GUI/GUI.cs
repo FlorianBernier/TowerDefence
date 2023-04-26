@@ -44,16 +44,6 @@ namespace TowerDefence
         public void Update(GameTime gameTime)
         {
 
-            KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.A))
-            {
-                
-            }
-            if (state.IsKeyDown(Keys.Z))
-            {
-                this.controller = tBuild;
-            }
-
             MouseState mouseState = Mouse.GetState();
             if (mouseState.LeftButton == ButtonState.Pressed &&
                         mouseState.LeftButton != oldMouseState.LeftButton)
@@ -61,6 +51,10 @@ namespace TowerDefence
                 currentTower = towerFilter.IsChoosed();
                 if (currentTower != null)
                     this.controller = tUpgrade;
+                else
+                {
+                    this.controller = tBuild;
+                }
             }
             oldMouseState = Mouse.GetState();
 

@@ -6,7 +6,7 @@ namespace TowerDefence
 {
     public static class StatsDB
     {
-        // Infos
+        // INFOS
 
         // playerPV
         public static int playerPV = 100;
@@ -139,5 +139,24 @@ namespace TowerDefence
 
         //test
         public static Texture2D test = MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1");
+
+
+        // Upgrade Fire Texture
+        public static List<Texture2D> upgrade_fire_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1"),
+        };
+
+        // Upgrade Pos
+        public static List<Vector2> upgrade_pos = new List<Vector2>()
+        {
+            new Vector2(contener_pos.X + 6, contener_pos.Y + 6),
+            new Vector2(contener_pos.X + 107, contener_pos.Y + 6 ),
+            new Vector2(contener_pos.X + 208, contener_pos.Y + 6),
+        };
+
+
     }
 }
