@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System.ComponentModel;
-
 
 namespace TowerDefence
 {
@@ -137,14 +135,9 @@ namespace TowerDefence
             new Vector2(afficher_pos.X + 6, afficher_pos.Y + 583),
         };
 
-
-
-
         // Tower Upgrade
 
         //test
         public static Texture2D test = MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1");
-
-
     }
 }

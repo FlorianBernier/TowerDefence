@@ -12,12 +12,13 @@ namespace TowerDefence
     {
         public ETower type;
         public Vector2 position;
-
+        public Rectangle towerRect;
         private Vector2 posOffest;
         public Tower(Vector2 pos) 
         {
             this.position = pos;
             posOffest = new Vector2(position.X * 64 + (int)Map.offsetMap.X, position.Y * 64 + (int)Map.offsetMap.Y);
+            towerRect = new Rectangle((int)posOffest.X, (int)posOffest.Y, 64, 64);
         }
 
         public void Draw()

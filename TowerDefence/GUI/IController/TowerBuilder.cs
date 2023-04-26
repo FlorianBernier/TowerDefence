@@ -39,8 +39,10 @@ namespace TowerDefence
                 Vector2 towerPosition = new Vector2(mouseState.X - 32, mouseState.Y - 32);
                 MainGame.spriteBatch.Draw(TowerDB.tower_texture[(int)towerSelectedToDraw], towerPosition, Color.White);
 
-
                 Mouse.SetCursor(MouseCursor.FromTexture2D(MainGame.mouseTransparent, 0, 0));
+            }
+            else
+            {
                 Mouse.SetCursor(MouseCursor.Arrow);
             }
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,5 +72,15 @@ namespace TowerDefence
             return liste.FindAll(tower => (tower.position.X == x && tower.position.Y == y)).Count > 0 ? false : true ;
         }
 
+        public Tower IsChoosed()
+        {
+            Tower testContainsMouse = null;
+            MouseState mouseState = Mouse.GetState();
+            filtred.ForEach(tower =>
+            {
+                if (tower.towerRect.Contains(mouseState.Position)) testContainsMouse = tower;
+            });
+            return testContainsMouse;
+        }
     }
 }
