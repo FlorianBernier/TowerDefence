@@ -1,85 +1,78 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SharpDX.DirectWrite;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace TowerDefence
 {
     public class TowerUpgrade : Controller
     {
-        public void DrawUpgradeMenu(List<Texture2D> listTextures, List<Texture2D> infos_texture)
+
+        
+        public TowerUpgrade() 
+        {
+        
+        }
+
+        // CheckClic
+        public override void UpdateGUI()
+        {
+
+        }
+
+        // Draw GUI
+        public void DrawContainer(List<Texture2D> listTextures)
         {
             for (int i = 0; i < listTextures.Count; i++)
             {
                 MainGame.spriteBatch.Draw(listTextures[i], StatsDB.upgrade_pos[i], Color.White);
             }
-            for (int i = 0; i < infos_texture.Count; i++)
-            {
-                MainGame.spriteBatch.Draw(infos_texture[i], StatsDB.infos_pos[i], Color.White);
-            }
         }
-
-
-        //-----------------------//
-
 
         public override void DrawGUI()
         {
-            MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
-            MainGame.spriteBatch.Draw(StatsDB.afficher_texture, StatsDB.afficher_pos, Color.White);
+            // Container
+            MainGame.spriteBatch.Draw(StatsDB.container_texture, StatsDB.container_pos, Color.White);
+            // Display
+            MainGame.spriteBatch.Draw(StatsDB.display_texture, StatsDB.display_pos, Color.White);
 
             if (GUI.currentTower != null)
             {
                 switch (GUI.currentTower.type)
                 {
                     case ETower.FIRE:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.fire_infos_texture);
+                        DrawContainer(StatsDB.upgrade_fire_texture);
+                        DrawDisplay(StatsDB.infos_fire_texture);
                         break;
                     case ETower.ICE:
-                        DrawUpgradeMenu(StatsDB.upgrade_ice_texture, StatsDB.ice_infos_texture);
+                        DrawContainer(StatsDB.upgrade_ice_texture);
+                        DrawDisplay(StatsDB.infos_ice_texture);
                         break;
                     case ETower.POISON:
-                        DrawUpgradeMenu(StatsDB.upgrade_poison_texture, StatsDB.poison_infos_texture);
+                        DrawContainer(StatsDB.upgrade_poison_texture);
+                        DrawDisplay(StatsDB.infos_poison_texture);
                         break;
                     case ETower.FLY:
-                        DrawUpgradeMenu(StatsDB.upgrade_fly_texture, StatsDB.fly_infos_texture);
+                        DrawContainer(StatsDB.upgrade_fly_texture);
+                        DrawDisplay(StatsDB.infos_fly_texture);
                         break;
                     case ETower.EARTH:
-                        DrawUpgradeMenu(StatsDB.upgrade_earth_texture, StatsDB.earth_infos_texture);
+                        DrawContainer(StatsDB.upgrade_earth_texture);
+                        DrawDisplay(StatsDB.infos_earth_texture);
                         break;
                     case ETower.SPECIAL1:
-                        DrawUpgradeMenu(StatsDB.upgrade_special1_texture, StatsDB.special1_infos_texture);
+                        DrawContainer(StatsDB.upgrade_special1_texture);
+                        DrawDisplay(StatsDB.infos_special1_texture);
                         break;
                     case ETower.SPECIAL2:
-                        DrawUpgradeMenu(StatsDB.upgrade_special2_texture, StatsDB.special2_infos_texture);
+                        DrawContainer(StatsDB.upgrade_special2_texture);
+                        DrawDisplay(StatsDB.infos_special2_texture);
                         break;
                     default:
                         break;
                 }
                 Mouse.SetCursor(MouseCursor.Arrow);
             }
-        }
-
-        public override void CheckClic()
-        {
-
-        }
-
-        public override void Update()
-        {
-
-        }
-
-
-
-        public override void SelectCurrentButtonToDraw()
-        {
-        }
-
-        public override void SelectCurrentCase()
-        {
         }
 
         

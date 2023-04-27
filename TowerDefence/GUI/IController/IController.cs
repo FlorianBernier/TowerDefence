@@ -3,17 +3,8 @@ namespace TowerDefence
 {
     public interface IController
     {
-        public void DrawGUI(); // Controller => TowerUpgrade / TowerBuilder => GUI
-
-        public void CheckClic(); // Controller => GUI
-        public void Update(); // Controller => 
-
+        public void UpdateGUI();
+        public void DrawGUI();
         
-        
-
-
-        // Controller
-        public void SelectCurrentButtonToDraw();
-
     }
 }

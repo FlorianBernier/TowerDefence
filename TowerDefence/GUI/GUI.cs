@@ -14,8 +14,8 @@ namespace TowerDefence
         public static TowerFilter towerFilter;
         public static Tower currentTower;
 
-        private TowerBuilder tBuild = new();
-        private TowerUpgrade tUpgrade = new();
+        private TowerBuilder towerBuild = new();
+        private TowerUpgrade towerUpgrade = new();
 
         private IController controller;
 
@@ -34,17 +34,15 @@ namespace TowerDefence
         public void LoadContent()
         {
             infos.LoadContent();
-            this.controller = tBuild;
+            this.controller = towerBuild;
             
         }
 
         public void Update(GameTime gameTime)
         {
-            CheckControllerActive();
+            SelectCurrentController();
 
-
-            controller.CheckClic();
-            controller.Update();
+            controller.UpdateGUI();
 
         }
 
@@ -58,20 +56,22 @@ namespace TowerDefence
 
 
         // Méthode GUI
-        public void CheckControllerActive()
+        public void SelectCurrentController()
         {
             MouseState mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton != oldMouseState.LeftButton)
+            if (mouseState.LeftButton == ButtonState.Pressed && 
+                mouseState.LeftButton != oldMouseState.LeftButton)
             {
-                currentTower = towerFilter.IsChoosed();
+                currentTower = towerFilter.TowerSelected();
                 if (currentTower != null)
-                    this.controller = tUpgrade;
+                    this.controller = towerUpgrade;
                 else
                 {
-                    this.controller = tBuild;
+                    this.controller = towerBuild;
                 }
             }
             oldMouseState = Mouse.GetState();
         }
+
     }
 }

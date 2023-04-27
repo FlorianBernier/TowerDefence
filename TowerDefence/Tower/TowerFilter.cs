@@ -72,7 +72,7 @@ namespace TowerDefence
             return liste.FindAll(tower => (tower.position.X == x && tower.position.Y == y)).Count > 0 ? false : true ;
         }
 
-        public Tower IsChoosed()
+        public Tower TowerSelected()
         {
             Tower testContainsMouse = null;
             MouseState mouseState = Mouse.GetState();
