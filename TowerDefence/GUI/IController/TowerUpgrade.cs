@@ -20,6 +20,11 @@ namespace TowerDefence
                 MainGame.spriteBatch.Draw(infos_texture[i], StatsDB.infos_pos[i], Color.White);
             }
         }
+
+
+        //-----------------------//
+
+
         public override void DrawGUI()
         {
             MainGame.spriteBatch.Draw(StatsDB.contener_texture, StatsDB.contener_pos, Color.White);
@@ -33,38 +38,41 @@ namespace TowerDefence
                         DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.fire_infos_texture);
                         break;
                     case ETower.ICE:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.ice_infos_texture);
+                        DrawUpgradeMenu(StatsDB.upgrade_ice_texture, StatsDB.ice_infos_texture);
                         break;
                     case ETower.POISON:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.poison_infos_texture);
+                        DrawUpgradeMenu(StatsDB.upgrade_poison_texture, StatsDB.poison_infos_texture);
                         break;
                     case ETower.FLY:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.fly_infos_texture);
+                        DrawUpgradeMenu(StatsDB.upgrade_fly_texture, StatsDB.fly_infos_texture);
                         break;
                     case ETower.EARTH:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.earth_infos_texture);
+                        DrawUpgradeMenu(StatsDB.upgrade_earth_texture, StatsDB.earth_infos_texture);
                         break;
                     case ETower.SPECIAL1:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.special1_infos_texture);
+                        DrawUpgradeMenu(StatsDB.upgrade_special1_texture, StatsDB.special1_infos_texture);
                         break;
                     case ETower.SPECIAL2:
-                        DrawUpgradeMenu(StatsDB.upgrade_fire_texture, StatsDB.special2_infos_texture);
+                        DrawUpgradeMenu(StatsDB.upgrade_special2_texture, StatsDB.special2_infos_texture);
                         break;
                     default:
                         break;
                 }
+                Mouse.SetCursor(MouseCursor.Arrow);
             }
         }
-        public override void DrawTowerOnMouse()
+
+        public override void CheckClic()
+        {
+
+        }
+
+        public override void Update()
         {
 
         }
 
 
-        public override void Afficher()
-        {
-
-        }
 
         public override void SelectCurrentButtonToDraw()
         {
@@ -74,9 +82,7 @@ namespace TowerDefence
         {
         }
 
-        public override void Update()
-        {
-        }
+        
     }
 }
 

@@ -135,18 +135,57 @@ namespace TowerDefence
             new Vector2(afficher_pos.X + 6, afficher_pos.Y + 583),
         };
 
-        // Tower Upgrade
-
-        //test
-        public static Texture2D test = MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1");
 
 
-        // Upgrade Fire Texture
+        // TOWER UPGRADE
+
         public static List<Texture2D> upgrade_fire_texture = new List<Texture2D>()
         {
-            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1"),
-            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1"),
-            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetance1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetence3"),
+        };
+
+        public static List<Texture2D> upgrade_ice_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/IceCompetence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/IceCompetence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/IceCompetence3"),
+        };
+
+        public static List<Texture2D> upgrade_poison_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/PoisonCompetence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/PoisonCompetence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/PoisonCompetence3"),
+        };
+
+        public static List<Texture2D> upgrade_fly_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FlyCompetence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FlyCompetence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FlyCompetence3"),
+        };
+
+        public static List<Texture2D> upgrade_earth_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/EarthCompetence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/EarthCompetence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/EarthCompetence3"),
+        };
+
+        public static List<Texture2D> upgrade_special1_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special1Competence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special1Competence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special1Competence3"),
+        };
+
+        public static List<Texture2D> upgrade_special2_texture = new List<Texture2D>()
+        {
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special2Competence1"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special2Competence2"),
+            MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special2Competence3"),
         };
 
         // Upgrade Pos

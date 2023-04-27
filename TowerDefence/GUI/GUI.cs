@@ -6,16 +6,13 @@ namespace TowerDefence
     public class GUI
     {
         public MouseState oldMouseState;
+        
 
-        public int boutonCliqueIndex = -1;
-        public int caseClickedX = -1;
-        public int caseClickedY = -1;
 
         private Infos infos;
 
         public static TowerFilter towerFilter;
         public static Tower currentTower;
-
 
         private TowerBuilder tBuild = new();
         private TowerUpgrade tUpgrade = new();
@@ -43,10 +40,28 @@ namespace TowerDefence
 
         public void Update(GameTime gameTime)
         {
+            CheckControllerActive();
 
+
+            controller.CheckClic();
+            controller.Update();
+
+        }
+
+        public void Draw()
+        {
+            infos.Draw();
+            controller.DrawGUI();
+        }
+
+
+
+
+        // Méthode GUI
+        public void CheckControllerActive()
+        {
             MouseState mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed &&
-                        mouseState.LeftButton != oldMouseState.LeftButton)
+            if (mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton != oldMouseState.LeftButton)
             {
                 currentTower = towerFilter.IsChoosed();
                 if (currentTower != null)
@@ -57,27 +72,6 @@ namespace TowerDefence
                 }
             }
             oldMouseState = Mouse.GetState();
-
-
-
-
-
-
-            controller.CheckClic();
-
-            controller.Update();
-
-        }
-
-        public void Draw()
-        {
-            infos.Draw();
-            controller.DrawGUI();
-            controller.Afficher();
-            controller.DrawTowerOnMouse();
-
-            //test
-            //MainGame.spriteBatch.Draw(StatsDB.test, new Vector2(0,0), Color.White);
         }
     }
 }
