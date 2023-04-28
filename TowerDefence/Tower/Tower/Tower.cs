@@ -14,6 +14,7 @@ namespace TowerDefence
         public Vector2 position;
         public Rectangle towerRect;
         private Vector2 posOffest;
+        public int competence = -1;
         public Tower(Vector2 pos) 
         {
             this.position = pos;

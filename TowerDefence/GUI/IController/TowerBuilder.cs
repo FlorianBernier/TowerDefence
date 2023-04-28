@@ -11,6 +11,7 @@ namespace TowerDefence
         public EBuilder type;
 
         public bool drawTowerOnMouse = false;
+        public bool cursorTransparent = false;
 
 
         public TowerBuilder()
@@ -40,7 +41,7 @@ namespace TowerDefence
         {
             MouseState mouseState = Mouse.GetState();
             if (mouseState.LeftButton == ButtonState.Pressed &&
-                    mouseState.LeftButton != oldMouseState.LeftButton)
+                mouseState.LeftButton != oldMouseState.LeftButton)
             {
                 for (int i = 0; i < StatsDB.builder_pos.Count; i++)
                 {
@@ -102,11 +103,16 @@ namespace TowerDefence
                 Vector2 towerPosition = new Vector2(mouseState.X - 32, mouseState.Y - 32);
                 MainGame.spriteBatch.Draw(TowerDB.tower_texture[(int)type], towerPosition, Color.White);
 
-                Mouse.SetCursor(MouseCursor.FromTexture2D(MainGame.mouseTransparent, 0, 0));
+                if (!cursorTransparent)
+                {
+                    Mouse.SetCursor(MouseCursor.FromTexture2D(MainGame.mouseTransparent, 0, 0));
+                    cursorTransparent = true;
+                }
             }
             else
             {
                 Mouse.SetCursor(MouseCursor.Arrow);
+                cursorTransparent = false;
             }
         }
 
@@ -125,25 +131,25 @@ namespace TowerDefence
                 switch (type)
                 {
                     case EBuilder.FIRE_BUILD:
-                        DrawDisplay(StatsDB.infos_fire_texture);
+                        DrawDisplay(StatsDB.infos_fire_texture, StatsDB.infos_fire_texte);
                         break;
                     case EBuilder.ICE_BUILD:
-                        DrawDisplay(StatsDB.infos_ice_texture);
+                        DrawDisplay(StatsDB.infos_ice_texture, StatsDB.infos_ice_texte);
                         break;
                     case EBuilder.POISON_BUILD:
-                        DrawDisplay(StatsDB.infos_poison_texture);
+                        DrawDisplay(StatsDB.infos_poison_texture, StatsDB.infos_poison_texte);
                         break;
                     case EBuilder.FLY_BUILD:
-                        DrawDisplay(StatsDB.infos_fly_texture);
+                        DrawDisplay(StatsDB.infos_fly_texture, StatsDB.infos_fly_texte);
                         break;
                     case EBuilder.EARTH_BUILD:
-                        DrawDisplay(StatsDB.infos_earth_texture);
+                        DrawDisplay(StatsDB.infos_earth_texture, StatsDB.infos_earth_texte);
                         break;
                     case EBuilder.SPECIAL1_BUILD:
-                        DrawDisplay(StatsDB.infos_special1_texture);
+                        DrawDisplay(StatsDB.infos_special1_texture, StatsDB.infos_special1_texte);
                         break;
                     case EBuilder.SPECIAL2_BUILD:
-                        DrawDisplay(StatsDB.infos_special2_texture);
+                        DrawDisplay(StatsDB.infos_special2_texture, StatsDB.infos_special2_texte);
                         break;
                     default:
                         Debug.WriteLine("ERROR TowerBuidler : invalid constructor");
@@ -152,6 +158,5 @@ namespace TowerDefence
             }
             DrawTowerOnMouse();
         }
-
     }
 }

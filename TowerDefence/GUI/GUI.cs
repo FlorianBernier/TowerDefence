@@ -1,17 +1,18 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Runtime.CompilerServices;
 
 namespace TowerDefence
 {
     public class GUI
     {
         public MouseState oldMouseState;
-        
-
 
         private Infos infos;
 
         public static TowerFilter towerFilter;
+
+        public static Tower tower;
         public static Tower currentTower;
 
         private TowerBuilder towerBuild = new();
@@ -62,10 +63,18 @@ namespace TowerDefence
             if (mouseState.LeftButton == ButtonState.Pressed && 
                 mouseState.LeftButton != oldMouseState.LeftButton)
             {
-                currentTower = towerFilter.TowerSelected();
-                if (currentTower != null)
+                tower = towerFilter.TowerSelected();
+                if (tower != null)
+                {
                     this.controller = towerUpgrade;
-                else
+                }
+                Rectangle buttonRectangle =
+                        new Rectangle((int)StatsDB.return_builder_pos.X,
+                                     (int)StatsDB.return_builder_pos.Y,
+                                     StatsDB.return_builder_texture.Width,
+                                     StatsDB.return_builder_texture.Height);
+
+                if (buttonRectangle.Contains(mouseState.Position))
                 {
                     this.controller = towerBuild;
                 }

@@ -25,7 +25,9 @@ namespace TowerDefence
         public static Vector2 posPlayerWave = new Vector2(1720, 15);
 
 
-        // CONTROLLER
+        //---------------------------- TEXTURE ----------------------------//
+
+        // CONTROLLER //----------------------------------------------------------------------------------//
 
         // Contener
         public static Texture2D container_texture = MainGame.content.Load<Texture2D>("GUI/Contener");
@@ -35,6 +37,12 @@ namespace TowerDefence
         public static Texture2D display_texture = MainGame.content.Load<Texture2D>("GUI/Afficher");
         public static Vector2 display_pos = new Vector2(0, 50);
 
+        // Return Builder
+        public static Texture2D return_builder_texture = MainGame.content.Load<Texture2D>("GUI/ReturnBuilder");
+        public static Vector2 return_builder_pos = new Vector2(container_pos.X+208, container_pos.Y+208);
+
+        // UpgradeActive
+        public static Texture2D upgrade_active_texture = MainGame.content.Load<Texture2D>("GUI/UpgradeActive");
 
         // CONTROLLER //-----------------------------------------------------------------------------------//
 
@@ -97,7 +105,7 @@ namespace TowerDefence
         };
 
         // Infos Pos
-        public static List<Vector2> infos_pos = new List<Vector2>()
+        public static List<Vector2> infos_texture_pos = new List<Vector2>()
         {
             new Vector2(display_pos.X + 63, display_pos.Y + 40),
             new Vector2(display_pos.X + 6, display_pos.Y + 325),
@@ -105,7 +113,6 @@ namespace TowerDefence
             new Vector2(display_pos.X + 6, display_pos.Y + 497),
             new Vector2(display_pos.X + 6, display_pos.Y + 583),
         };
-
 
         // TOWER BUILDER //---------------------------------------------------------------------------//
 
@@ -189,5 +196,69 @@ namespace TowerDefence
         };
 
 
+
+
+        //---------------------------------------- TEXTE -------------------------------------------// 
+
+        // CONTROLLER //----------------------------------------------------------------------------//
+
+        // Display
+        public static List<string> infos_fire_texte = new List<string>()
+        {
+            "MAGE DE FEU",
+            "Incendio",
+            "Diffinito",
+            "Flambois",
+        };
+        public static List<string> infos_ice_texte = new List<string>()
+        {
+            "MAGE DE GLACE",
+            "glacius",
+            "Stupefix",
+            "Oubliette",
+        };
+        public static List<string> infos_poison_texte = new List<string>()
+        {
+            "MAGE DE POISON",
+            "Crache limace",
+            "Silencio",
+            "Serpentasortia",
+        };
+        public static List<string> infos_fly_texte = new List<string>()
+        {
+            "MAGE DE L'AIR",
+            "Reducto",
+            "Ridiculuce",
+            "Incarcerem",
+        };
+        public static List<string> infos_earth_texte = new List<string>()
+        {
+            "MAGE DE TERRE",
+            "Amplificatum",
+            "Destructum",
+            "Flipendo",
+        };
+        public static List<string> infos_special1_texte = new List<string>()
+        {
+            "MAGE DE LUMIERE",
+            "Expelliarmus",
+            "Lumos",
+            "Spero patronum",
+        };
+        public static List<string> infos_special2_texte = new List<string>()
+        {
+            "MAGE DE TENEBRE",
+            "Imperium",
+            "Endoloris",
+            "Avada kedavra",
+        };
+
+        public static List<Vector2> infos_texte_pos = new List<Vector2>()
+        {
+            new Vector2(display_pos.X + 6+60, display_pos.Y + 325+15),
+            new Vector2(display_pos.X + 6+60, display_pos.Y + 411+15),
+            new Vector2(display_pos.X + 6+60, display_pos.Y + 497+15),
+            new Vector2(display_pos.X + 6+60, display_pos.Y + 583+15),
+        };
     }
 }
