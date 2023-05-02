@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class Monster1 : Monster
+    public class MonsterIce : Monster
     {
-        
-
-        public Monster1() : base() 
+        public MonsterIce() : base() 
         {
-            type = EMonster.FIRE;
-
+            type = EMonster.ICE;
         }
+
+
+
+
     }
 }

@@ -5,13 +5,13 @@ namespace TowerDefence
 {
     public class MonsterFilter
     {
-        List<Monster> liste;
-        List<Monster> filtred;
+        public static List<Monster> liste;
+        public static List<Monster> filtred;
 
         public MonsterFilter()
         { 
-            this.liste = new List<Monster>();
-            this.filtred = liste;
+            liste = new List<Monster>();
+            filtred = liste;
         }
 
 
@@ -20,13 +20,31 @@ namespace TowerDefence
             switch (type)
             {
                 case EMonster.FIRE:
-                    this.liste.Add(new Monster1());
+                    liste.Add(new MonsterFire());
                     break;
                 case EMonster.ICE:
-                    this.liste.Add(new Monster2());
+                    liste.Add(new MonsterIce());
                     break;
                 case EMonster.POISON:
-                    this.liste.Add(new Monster3());
+                    liste.Add(new MonsterPoison());
+                    break;
+                case EMonster.WATER:
+                    liste.Add(new MonsterWather());
+                    break;
+                case EMonster.WIND:
+                    liste.Add(new MonsterWind());
+                    break;
+                case EMonster.LIGHT:
+                    liste.Add(new MonsterLight());
+                    break;
+                case EMonster.DARK:
+                    liste.Add(new MonsterDark());
+                    break;
+                case EMonster.ELECTRIC:
+                    liste.Add(new MonsterElectric());
+                    break;
+                case EMonster.PSYCHIC:
+                    liste.Add(new MonsterPsychic());
                     break;
                 default:
                     throw new Exception("ERROR TYPE INCONNU");

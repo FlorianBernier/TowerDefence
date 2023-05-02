@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class Monster3 : Monster
+    public class MonsterLight : Monster
     {
-        public Monster3() 
+        public MonsterLight()
         {
-            type = EMonster.POISON;
+            type = EMonster.LIGHT;
         }
     }
 }

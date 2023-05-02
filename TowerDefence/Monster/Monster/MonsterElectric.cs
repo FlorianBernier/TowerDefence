@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class Monster2 : Monster
+    public class MonsterElectric : Monster
     {
-        public Monster2() : base() 
+        public MonsterElectric()
         {
-            type = EMonster.ICE;
+            type = EMonster.ELECTRIC;
         }
-
-
-
-
     }
 }

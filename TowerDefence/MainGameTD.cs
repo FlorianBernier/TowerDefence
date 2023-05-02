@@ -10,24 +10,25 @@ namespace TowerDefence
         private MonsterFilter monsterFilter;
         private TowerFilter towerFilter;
 
+        private TimerMiliseconde monsterTimer;
+        private TimerMiliseconde waveTimer;
+        private int wave = 0;
+        private int monsterByWave = 10;
+        private int monsterCount = 0;
 
 
         public MainGameTD()
         {
             this.map = new Map();
-            
 
-            this.monsterFilter = new MonsterFilter()
-
-                .Add(EMonster.FIRE)
-                .Add(EMonster.ICE)
-                .Add(EMonster.POISON);
-
-
+            this.monsterFilter = new MonsterFilter();
             this.towerFilter = new TowerFilter();
 
-
             this.gui = new GUI(towerFilter);
+
+            monsterTimer = new TimerMiliseconde(500);
+            waveTimer = new TimerMiliseconde(5000);
+            waveTimer.stop();
         }
 
 
@@ -47,10 +48,13 @@ namespace TowerDefence
         {
             gui.Update(gameTime);
 
+            WaveMonster();
+
             monsterFilter
                 .all()
                    .Move()
                    .Remove();
+
         }
 
         public void Draw()
@@ -64,7 +68,66 @@ namespace TowerDefence
 
             towerFilter
                 .all()
-                .Draw();
+                    .Draw();
+        }
+
+
+        private void WaveMonster()
+        {
+            if (monsterCount < monsterByWave && monsterTimer.elapsed())
+            {
+
+                switch (wave % 9)
+                {
+                    case 0:
+                        monsterFilter.Add(EMonster.FIRE);
+                        break;
+                    case 1:
+                        monsterFilter.Add(EMonster.ICE);
+                        break;
+                    case 2:
+                        monsterFilter.Add(EMonster.POISON);
+                        break;
+                    case 3:
+                        monsterFilter.Add(EMonster.WATER);
+                        break;
+                    case 4:
+                        monsterFilter.Add(EMonster.WIND);
+                        break;
+                    case 5:
+                        monsterFilter.Add(EMonster.LIGHT);
+                        break;
+                    case 6:
+                        monsterFilter.Add(EMonster.DARK);
+                        break;
+                    case 7:
+                        monsterFilter.Add(EMonster.ELECTRIC);
+                        break;
+                    case 8:
+                        monsterFilter.Add(EMonster.PSYCHIC);
+                        break;
+                    default:
+                        break;
+                }
+
+                monsterCount++;
+                monsterTimer.restart();
+            }
+
+            if (monsterCount == monsterByWave && !waveTimer.hasStart && MonsterFilter.liste.Count == 0)
+            {
+                waveTimer.restart();
+            }
+
+            if (waveTimer.elapsed() && waveTimer.hasStart)
+            {
+                wave++;
+                monsterCount = 0;
+                monsterByWave += 2;
+                waveTimer.stop();
+            }
+
+            
         }
     }
 }

@@ -25,14 +25,27 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("Monster/Monster1"),
             MainGame.content.Load<Texture2D>("Monster/Monster2"),
             MainGame.content.Load<Texture2D>("Monster/Monster3"),
+            MainGame.content.Load<Texture2D>("Monster/Monster4"),
+            MainGame.content.Load<Texture2D>("Monster/Monster5"),
+            MainGame.content.Load<Texture2D>("Monster/Monster6"),
+            MainGame.content.Load<Texture2D>("Monster/Monster7"),
+            MainGame.content.Load<Texture2D>("Monster/Monster8"),
+            MainGame.content.Load<Texture2D>("Monster/Monster9"),
+
         };
          
         // Speed
         public static List<int> speed = new List<int>()
         {
-            10, 
-            5, 
-            8
+            20, 
+            30, 
+            20,
+            4,
+            3,
+            2,
+            2,
+            3,
+            3
         };
 
         
