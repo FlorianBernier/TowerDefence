@@ -37,9 +37,9 @@ namespace TowerDefence
         // Speed
         public static List<int> speed = new List<int>()
         {
-            20, 
-            30, 
-            20,
+            2, 
+            3, 
+            2,
             4,
             3,
             2,

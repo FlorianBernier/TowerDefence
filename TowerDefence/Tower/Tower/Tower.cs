@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TowerDefence
 {
@@ -13,20 +9,32 @@ namespace TowerDefence
         public ETower type;
         public Vector2 position;
         public Rectangle towerRect;
-        private Vector2 posOffest;
+        private Vector2 posOffset;
+        private Vector2 posOffsetSpell;
         public int competence = -1;
         public Tower(Vector2 pos) 
         {
             this.position = pos;
-            posOffest = new Vector2(position.X * 64 + (int)Map.offsetMap.X, position.Y * 64 + (int)Map.offsetMap.Y);
-            towerRect = new Rectangle((int)posOffest.X, (int)posOffest.Y, 64, 64);
+            posOffset = new Vector2(position.X * 64 + (int)Map.offsetMap.X, position.Y * 64 + (int)Map.offsetMap.Y);
+            towerRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 64, 64);
+
+            posOffsetSpell = new Vector2(position.X * 64 + (int)Map.offsetMap.X+32, position.Y * 64 + (int)Map.offsetMap.Y+32);
         }
 
+        public void SpellBase()
+        {
+            //posOffsetSpell.Y += TowerDB.spell_base_speed[(int)type];
+        }
         public void Draw()
         {
-            MouseState mouseState = Mouse.GetState();
+            //MouseState mouseState = Mouse.GetState();
 
-            MainGame.spriteBatch.Draw(TowerDB.tower_texture[(int)type], posOffest, Color.White);
+            MainGame.spriteBatch.Draw(TowerDB.tower_texture[(int)type], posOffset, Color.White);
+
+            MainGame.spriteBatch.Draw(TowerDB.spell_base_texture[(int)type], posOffsetSpell, Color.White);
+
         }
+
+        
     }
 }

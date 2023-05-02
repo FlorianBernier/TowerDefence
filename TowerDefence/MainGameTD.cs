@@ -49,11 +49,14 @@ namespace TowerDefence
             gui.Update(gameTime);
 
             WaveMonster();
-
             monsterFilter
                 .all()
                    .Move()
                    .Remove();
+
+            towerFilter
+                .all()
+                    .SpellBase();
 
         }
 

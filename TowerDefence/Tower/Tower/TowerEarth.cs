@@ -13,5 +13,7 @@ namespace TowerDefence
         {
             type = ETower.EARTH;
         }
+
+
     }
 }
