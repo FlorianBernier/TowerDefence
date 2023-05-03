@@ -9,7 +9,9 @@ namespace TowerDefence
 
         private MonsterFilter monsterFilter;
         private TowerFilter towerFilter;
+        private SpellFilter spellFilter;
 
+        // Wave
         private TimerMiliseconde monsterTimer;
         private TimerMiliseconde waveTimer;
         private int wave = 0;
@@ -23,10 +25,12 @@ namespace TowerDefence
 
             this.monsterFilter = new MonsterFilter();
             this.towerFilter = new TowerFilter();
-
+            this.spellFilter = new SpellFilter()
+                .Add(ETower.FIRE, new Vector2(200,200));
 
             this.gui = new GUI(towerFilter);
 
+            // Wave
             monsterTimer = new TimerMiliseconde(500);
             waveTimer = new TimerMiliseconde(5000);
             waveTimer.stop();
@@ -73,6 +77,10 @@ namespace TowerDefence
             towerFilter
                 .all()
                     .Draw();
+
+            spellFilter
+                .all()
+                    .DrawSpell();
         }
 
 

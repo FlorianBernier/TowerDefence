@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class TowerIce : Tower
+    public class SpellEarth : Spell
     {
-        public TowerIce(Vector2 pos) : base(pos)
+        public SpellEarth(Vector2 pos) : base(pos)
         {
-            type = ETower.ICE;
+            type = ETower.EARTH;
         }
-
-
-
     }
 }

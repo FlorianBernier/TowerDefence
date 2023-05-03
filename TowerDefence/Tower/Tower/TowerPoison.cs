@@ -14,9 +14,6 @@ namespace TowerDefence
             type = ETower.POISON;
         }
 
-        public override void Update()
-        {
-
-        }
+       
     }
 }

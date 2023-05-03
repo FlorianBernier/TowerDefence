@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    public class TowerIce : Tower
+    internal interface ITower
     {
-        public TowerIce(Vector2 pos) : base(pos)
-        {
-            type = ETower.ICE;
-        }
-
-
-
+        public void Draw();
+        
+        
     }
 }

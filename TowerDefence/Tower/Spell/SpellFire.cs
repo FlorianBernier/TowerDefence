@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
-    internal interface ITower
+    public class SpellFire : Spell
     {
-        public void Update();
-        public void Draw();
-        
-        
+        public SpellFire(Vector2 pos) : base(pos)
+        {
+            type = ETower.FIRE;
+        }
     }
 }

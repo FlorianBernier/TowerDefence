@@ -22,15 +22,10 @@ namespace TowerDefence
 
         }
 
-        
-
-        public abstract void Update();
-
         public void Draw()
         {
             MainGame.spriteBatch.Draw(TowerDB.tower_texture[(int)type], posOffset, Color.White);
 
-            
         }
     }
 }

@@ -2,9 +2,6 @@
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TowerDefence
 {
@@ -45,7 +42,7 @@ namespace TowerDefence
                     this.liste.Add(new TowerSpecial2(pos));
                     break;
                 default:
-                    throw new Exception("ERROR TYPE INCONNU");
+                    throw new Exception("TowerFilter : ERROR TYPE INCONNU");
             }
             return this;
         }

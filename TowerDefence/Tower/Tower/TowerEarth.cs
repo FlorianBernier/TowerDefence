@@ -14,10 +14,7 @@ namespace TowerDefence
             type = ETower.EARTH;
         }
 
-        public override void Update()
-        {
-
-        }
+       
 
     }
 }

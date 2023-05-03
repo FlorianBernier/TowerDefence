@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Font\" />
-    <Folder Include="Content\Tower\Spell\SpellSpecial\" />
+    <Folder Include="Content\Tower\Spell\SpellSpecial3\" />
+    <Folder Include="Content\Tower\Spell\SpellSpecial2\" />
+    <Folder Include="Content\Tower\Spell\SpellSpecial1\" />
     <Folder Include="Menu\" />
   </ItemGroup>
   <ItemGroup>
