@@ -15,29 +15,29 @@ namespace TowerDefence
             this.filtred = liste;
         }
 
-        public SpellFilter Add(ETower type, Vector2 pos)
+        public SpellFilter Add(ESpell type, Vector2 pos)
         {
             switch (type)
             {
-                case ETower.FIRE:
+                case ESpell.FIRE:
                     this.liste.Add(new SpellFire(pos));
                     break;
-                case ETower.ICE:
+                case ESpell.ICE:
                     this.liste.Add(new SpellIce(pos));
                     break;
-                case ETower.POISON:
+                case ESpell.POISON:
                     this.liste.Add(new SpellPoison(pos));
                     break;
-                case ETower.FLY:
+                case ESpell.FLY:
                     this.liste.Add(new SpellFly(pos));
                     break;
-                case ETower.EARTH:
+                case ESpell.EARTH:
                     this.liste.Add(new SpellEarth(pos));
                     break;
-                case ETower.SPECIAL1:
+                case ESpell.SPECIAL1:
                     this.liste.Add(new SpellSpecial1(pos));
                     break;
-                case ETower.SPECIAL2:
+                case ESpell.SPECIAL2:
                     this.liste.Add(new SpellSpecial2(pos));
                     break;
                 default:
@@ -52,10 +52,18 @@ namespace TowerDefence
             return this;
         }
 
+        public SpellFilter UpdateSpell()
+        {
+            filtred.ForEach(spell => spell.UpdateSpell());
+            return this;
+        }
+
         public SpellFilter DrawSpell()
         {
             filtred.ForEach(spell => spell.DrawSpell());
             return this;
         }
+
+        
     }
 }

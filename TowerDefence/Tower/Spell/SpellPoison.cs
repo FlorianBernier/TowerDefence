@@ -11,7 +11,7 @@ namespace TowerDefence
     {
         public SpellPoison(Vector2 pos) : base(pos)
         {
-            type = ETower.POISON;
+            type = ESpell.POISON;
         }
     }
 }

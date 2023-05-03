@@ -25,10 +25,9 @@ namespace TowerDefence
 
             this.monsterFilter = new MonsterFilter();
             this.towerFilter = new TowerFilter();
-            this.spellFilter = new SpellFilter()
-                .Add(ETower.FIRE, new Vector2(200,200));
+            this.spellFilter = new SpellFilter();
 
-            this.gui = new GUI(towerFilter);
+            this.gui = new GUI(towerFilter, spellFilter);
 
             // Wave
             monsterTimer = new TimerMiliseconde(500);
@@ -59,9 +58,9 @@ namespace TowerDefence
                    .Move()
                    .Remove();
 
-            towerFilter
-                .all();
-                    
+            spellFilter
+                .all()
+                    .UpdateSpell();
 
         }
 

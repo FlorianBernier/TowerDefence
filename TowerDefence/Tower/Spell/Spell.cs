@@ -9,21 +9,30 @@ namespace TowerDefence
 {
     public abstract class Spell : ISpell
     {
-        public ETower type;
+        public ESpell type;
         public Vector2 position;
         public Rectangle spellRect;
         private Vector2 posOffset;
+        private Vector2 velocity;
+        public int competence = -1;
 
         public Spell(Vector2 pos) 
         {
             this.position = pos;
-            posOffset = new Vector2(position.X * 64 + (int)Map.offsetMap.X+32, position.Y * 64 + (int)Map.offsetMap.Y+32);
-            spellRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 8, 8);
+            posOffset = new Vector2(position.X * 64 + (int)Map.offsetMap.X+32-8, position.Y * 64 + (int)Map.offsetMap.Y+32-8);
+            spellRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 16, 16);
+        }
+
+        public void UpdateSpell()
+        {
+            velocity.Y = SpellDB.spell_speed[(int)type];
+
+            posOffset += velocity;
         }
 
         public void DrawSpell()
         {
-            MainGame.spriteBatch.Draw(SpellDB.spell_texture[(int)type], new Vector2(200,200), Color.White);
+            MainGame.spriteBatch.Draw(SpellDB.spell_texture[(int)type], posOffset, Color.White);
 
         }
 

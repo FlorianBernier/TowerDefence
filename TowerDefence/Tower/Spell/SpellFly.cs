@@ -11,7 +11,7 @@ namespace TowerDefence
     {
         public SpellFly(Vector2 pos) : base(pos)
         {
-            type = ETower.FLY;
+            type = ESpell.FLY;
         }
     }
 }

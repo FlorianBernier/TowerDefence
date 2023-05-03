@@ -11,7 +11,7 @@ namespace TowerDefence
     {
         public SpellEarth(Vector2 pos) : base(pos)
         {
-            type = ETower.EARTH;
+            type = ESpell.EARTH;
         }
     }
 }

@@ -8,32 +8,25 @@ namespace TowerDefence
 {
     public enum ESpell
     {
-        INCENDIO,
-        DIFFINITO,
-        FLAMBOIS, 
+        FIRE,
+        
 
-        GLACIUS,
-        STUPEFLIX,
-        OUBLIETTE,
+        ICE,
+      
 
-        CRACHE_LIMACE,
-        SILENCIO,
-        SERPENTASORTIA,
+        POISON,
+       
 
-        REDUCTO,
-        RIDICULUCE,
-        INCARCEREM,
+        FLY,
+     
 
-        IMPLIFICATUM,
-        DESTRUCTUM,
-        FLIPENDO,
+        EARTH,
+      
 
-        EXPELLIARMUS,
-        LUMOS,
-        SPERO_PATRONUM,
+        SPECIAL1,
+    
 
-        IMPERIUM,
-        ENDOLORIS,
-        AVADA_KEDAVRA
+        SPECIAL2,
+      
     }
 }

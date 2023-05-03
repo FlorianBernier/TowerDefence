@@ -11,7 +11,7 @@ namespace TowerDefence
     {
         public SpellSpecial1(Vector2 pos) : base(pos)
         {
-            type = ETower.SPECIAL1;
+            type = ESpell.SPECIAL1;
         }
     }
 }

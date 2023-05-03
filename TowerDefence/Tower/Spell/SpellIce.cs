@@ -11,7 +11,7 @@ namespace TowerDefence
     {
         public SpellIce(Vector2 pos) : base(pos)
         {
-            type = ETower.ICE;
+            type = ESpell.ICE;
         }
     }
 }
