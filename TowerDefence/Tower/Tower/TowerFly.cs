@@ -13,5 +13,11 @@ namespace TowerDefence
         {
             type = ETower.FLY;
         }
+
+
+        public override void Update()
+        {
+
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace TowerDefence
             this.monsterFilter = new MonsterFilter();
             this.towerFilter = new TowerFilter();
 
+
             this.gui = new GUI(towerFilter);
 
             monsterTimer = new TimerMiliseconde(500);
@@ -55,8 +56,8 @@ namespace TowerDefence
                    .Remove();
 
             towerFilter
-                .all()
-                    .SpellBase();
+                .all();
+                    
 
         }
 
@@ -129,8 +130,6 @@ namespace TowerDefence
                 monsterByWave += 2;
                 waveTimer.stop();
             }
-
-            
         }
     }
 }

@@ -14,5 +14,10 @@ namespace TowerDefence
             type = ETower.ICE;
         }
 
+        public override void Update()
+        {
+
+        }
+
     }
 }

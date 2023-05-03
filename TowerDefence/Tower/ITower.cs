@@ -9,8 +9,9 @@ namespace TowerDefence
 {
     internal interface ITower
     {
-        public void SpellBase();
+        public void Update();
         public void Draw();
+        
         
     }
 }

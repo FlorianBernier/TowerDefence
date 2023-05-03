@@ -13,5 +13,10 @@ namespace TowerDefence
         {
             type = ETower.SPECIAL1;
         }
+
+        public override void Update()
+        {
+
+        }
     }
 }

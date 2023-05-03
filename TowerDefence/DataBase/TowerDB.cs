@@ -25,7 +25,7 @@ namespace TowerDefence
         // SPELL
 
         // Tir de base 
-        public static List<Texture2D> spell_base_texture = new List<Texture2D>()
+        public static List<Texture2D> shoot_base_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("Tower/Spell/SpellBase/Test"),
             MainGame.content.Load<Texture2D>("Tower/Spell/SpellBase/Test"),
@@ -38,7 +38,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("Tower/Spell/SpellBase/Test"),
         };
 
-        public static List<int> spell_base_speed = new List<int>()
+        public static List<int> shoot_base_speed = new List<int>()
         {
             5,
             3,

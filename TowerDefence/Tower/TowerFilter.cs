@@ -83,10 +83,6 @@ namespace TowerDefence
             return testContainsMouse;
         }
 
-        public TowerFilter SpellBase()
-        {
-            filtred.ForEach(tower => tower.SpellBase());
-            return this;
-        }
+        
     }
 }
