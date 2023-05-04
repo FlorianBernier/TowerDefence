@@ -12,7 +12,7 @@ namespace TowerDefence
         public Rectangle towerRect;
         private Vector2 posOffset;
         public int competence = -1;
-        
+
 
         public Tower(Vector2 pos) 
         {
@@ -20,6 +20,14 @@ namespace TowerDefence
             posOffset = new Vector2(position.X * 64 + (int)Map.offsetMap.X, position.Y * 64 + (int)Map.offsetMap.Y);
             towerRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 64, 64);
 
+        }
+
+        public void AddSpell()
+        {
+            MainGameTD.spellFilter
+                .Add(
+                    (ESpell)type, position);
+                    //new Vector2(Controller.caseClickedX, Controller.caseClickedY));
         }
 
         public void Draw()

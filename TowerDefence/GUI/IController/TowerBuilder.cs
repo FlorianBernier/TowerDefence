@@ -38,17 +38,6 @@ namespace TowerDefence
             }
         }
 
-        public void AddSpellCurrentCase()
-        {
-            if (drawTowerOnMouse)
-            {
-                GUI.spellFilter
-                    .Add(
-                        (ESpell)type,
-                        new Vector2(caseClickedX, caseClickedY));
-            }     
-        }
-
         public override void UpdateGUI()
         {
             MouseState mouseState = Mouse.GetState();
@@ -90,7 +79,6 @@ namespace TowerDefence
                         caseClickedX = x;
                         caseClickedY = y;
                         AddTowerCurrentCase();
-                        AddSpellCurrentCase();
                     }
                 }
             }

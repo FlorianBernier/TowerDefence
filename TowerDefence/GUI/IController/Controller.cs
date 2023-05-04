@@ -9,8 +9,8 @@ namespace TowerDefence
     {
         public MouseState oldMouseState;
         public int boutonCliqueIndex = -1;
-        public int caseClickedX = -1;
-        public int caseClickedY = -1;
+        public static int caseClickedX = -1;
+        public static int caseClickedY = -1;
 
         public Controller() 
         {

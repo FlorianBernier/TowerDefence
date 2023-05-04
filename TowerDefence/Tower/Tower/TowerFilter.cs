@@ -59,6 +59,12 @@ namespace TowerDefence
             return this;
         }
 
+        public TowerFilter AddSpell()
+        {
+            filtred.ForEach((tower) => tower.AddSpell());
+            return this;
+        }
+
         public List<Tower> Build()
         {
             return liste;
