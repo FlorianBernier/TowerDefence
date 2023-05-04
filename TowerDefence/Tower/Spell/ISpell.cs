@@ -6,7 +6,7 @@ namespace TowerDefence
 {
     public interface ISpell
     {
-        public void UpdateSpell(Vector2 monsterPos);
+        public void UpdateSpell();
         public void DrawSpell();
 
     }

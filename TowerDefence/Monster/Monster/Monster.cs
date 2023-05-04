@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 
 namespace TowerDefence
 {
@@ -20,7 +19,7 @@ namespace TowerDefence
 
         public void Draw()
         {
-            MainGame.spriteBatch.Draw(MonsterDB.monster_texture[(int)type],this.pos,Color.White);
+            MainGame.spriteBatch.Draw(MonsterDB.monster_texture[(int)type],pos,Color.White);
         }
 
         public void Move()

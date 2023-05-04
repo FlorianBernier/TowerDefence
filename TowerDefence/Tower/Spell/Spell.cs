@@ -15,6 +15,7 @@ namespace TowerDefence
         private Vector2 posOffset;
         private Vector2 velocity;
         public int competence = -1;
+        
 
         public Spell(Vector2 pos) 
         {
@@ -23,15 +24,15 @@ namespace TowerDefence
             spellRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 16, 16);
         }
 
-        public void UpdateSpell(Vector2 monsterPos)
+        public void UpdateSpell()
         {
-            Vector2 direction = Vector2.Normalize(monsterPos - posOffset);
-            float distance = Vector2.Distance(monsterPos, posOffset);
-            velocity = direction * (SpellDB.spell_speed[(int)type] * (distance / 100f));
+            //Vector2 direction = Vector2.Normalize(Monster.pos - posOffset);
+            //float distance = Vector2.Distance(Monster.pos, posOffset);
+            //velocity = direction * (SpellDB.spell_speed[(int)type] * (distance / 100f));
 
-            velocity.X = SpellDB.spell_speed[(int)type];
+            velocity.Y = SpellDB.spell_speed[(int)type];
 
-            posOffset += velocity;
+            posOffset -= velocity;
         }
 
         public void DrawSpell()
