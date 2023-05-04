@@ -23,7 +23,7 @@ namespace TowerDefence
 
         public static List<int> spell_speed = new List<int>()
         {
-            5,
+            10,
             3,
             2,
             4,

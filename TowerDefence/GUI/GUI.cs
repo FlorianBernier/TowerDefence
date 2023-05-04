@@ -14,19 +14,17 @@ namespace TowerDefence
         public static Tower tower;
         public static Tower currentTower;
 
-        //public static SpellFilter spellFilter;
 
         private TowerBuilder towerBuild = new();
         private TowerUpgrade towerUpgrade = new();
 
         private IController controller;
 
-        public GUI(TowerFilter towerFilter, SpellFilter spellFilter) 
+        public GUI(TowerFilter towerFilter) 
         {
             this.infos = new Infos();
 
             GUI.towerFilter = towerFilter;
-            //GUI.spellFilter = spellFilter;
         }
 
         public void Initialize()

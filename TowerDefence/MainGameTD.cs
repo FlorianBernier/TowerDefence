@@ -27,7 +27,7 @@ namespace TowerDefence
             this.towerFilter = new TowerFilter();
             spellFilter = new SpellFilter();
 
-            this.gui = new GUI(towerFilter, spellFilter);
+            this.gui = new GUI(towerFilter);
 
             // Wave
             monsterTimer = new TimerMiliseconde(500);
@@ -91,40 +91,7 @@ namespace TowerDefence
         {
             if (monsterCount < monsterByWave && monsterTimer.elapsed())
             {
-
-                switch (wave % 9)
-                {
-                    case 0:
-                        monsterFilter.Add(EMonster.FIRE);
-                        break;
-                    case 1:
-                        monsterFilter.Add(EMonster.ICE);
-                        break;
-                    case 2:
-                        monsterFilter.Add(EMonster.POISON);
-                        break;
-                    case 3:
-                        monsterFilter.Add(EMonster.WATER);
-                        break;
-                    case 4:
-                        monsterFilter.Add(EMonster.WIND);
-                        break;
-                    case 5:
-                        monsterFilter.Add(EMonster.LIGHT);
-                        break;
-                    case 6:
-                        monsterFilter.Add(EMonster.DARK);
-                        break;
-                    case 7:
-                        monsterFilter.Add(EMonster.ELECTRIC);
-                        break;
-                    case 8:
-                        monsterFilter.Add(EMonster.PSYCHIC);
-                        break;
-                    default:
-                        break;
-                }
-
+                monsterFilter.Add( (EMonster) (wave % 9) );
                 monsterCount++;
                 monsterTimer.restart();
             }

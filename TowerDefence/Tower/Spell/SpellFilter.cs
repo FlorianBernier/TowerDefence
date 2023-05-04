@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 
 namespace TowerDefence
@@ -54,7 +55,7 @@ namespace TowerDefence
 
         public SpellFilter UpdateSpell()
         {
-            filtred.ForEach(spell => spell.UpdateSpell());
+            filtred.ForEach(spell => spell.UpdateSpell(Monster.pos));
             return this;
         }
 

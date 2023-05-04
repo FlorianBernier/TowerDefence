@@ -13,6 +13,8 @@ namespace TowerDefence
         private Vector2 posOffset;
         public int competence = -1;
 
+        private TimerMiliseconde spellTimer;
+
 
         public Tower(Vector2 pos) 
         {
@@ -20,14 +22,19 @@ namespace TowerDefence
             posOffset = new Vector2(position.X * 64 + (int)Map.offsetMap.X, position.Y * 64 + (int)Map.offsetMap.Y);
             towerRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 64, 64);
 
+            spellTimer = new TimerMiliseconde(200);
         }
 
         public void AddSpell()
         {
-            MainGameTD.spellFilter
+            if ( spellTimer.elapsed())
+            {
+                MainGameTD.spellFilter
                 .Add(
                     (ESpell)type, position);
-                    //new Vector2(Controller.caseClickedX, Controller.caseClickedY));
+                spellTimer.restart();
+
+            }
         }
 
         public void Draw()

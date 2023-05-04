@@ -23,9 +23,13 @@ namespace TowerDefence
             spellRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 16, 16);
         }
 
-        public void UpdateSpell()
+        public void UpdateSpell(Vector2 monsterPos)
         {
-            velocity.Y = SpellDB.spell_speed[(int)type];
+            Vector2 direction = Vector2.Normalize(monsterPos - posOffset);
+            float distance = Vector2.Distance(monsterPos, posOffset);
+            velocity = direction * (SpellDB.spell_speed[(int)type] * (distance / 100f));
+
+            velocity.X = SpellDB.spell_speed[(int)type];
 
             posOffset += velocity;
         }
