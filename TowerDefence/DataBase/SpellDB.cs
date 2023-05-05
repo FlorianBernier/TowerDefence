@@ -9,7 +9,7 @@ namespace TowerDefence
 
         // SPELL
 
-        // Spell Base
+        // Spell img
         public static List<Texture2D> spell_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("Tower/Spell/Spell/SpellFire"),
@@ -21,6 +21,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("Tower/Spell/Spell/SpellSpecial2"),
         };
 
+        // Spell speed
         public static List<int> spell_speed = new List<int>()
         {
             10,
