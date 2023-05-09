@@ -11,13 +11,7 @@ namespace TowerDefence
         private TowerFilter towerFilter;
         public static SpellFilter spellFilter;
 
-        // Wave
-        private TimerMiliseconde monsterTimer;
-        private TimerMiliseconde waveTimer;
-        private int wave = 0;
-        private int monsterByWave = 10;
-        private int monsterCount = 0;
-
+        
 
         public MainGameTD()
         {
@@ -29,10 +23,7 @@ namespace TowerDefence
 
             this.gui = new GUI(towerFilter);
 
-            // Wave
-            monsterTimer = new TimerMiliseconde(500);
-            waveTimer = new TimerMiliseconde(5000);
-            waveTimer.stop();
+            MonsterDB.waveTimer.stop();
         }
 
 
@@ -63,6 +54,7 @@ namespace TowerDefence
             spellFilter
                 .all()
                     .UpdateSpell();
+                      
 
             towerFilter
                 .all()
@@ -91,24 +83,25 @@ namespace TowerDefence
 
         private void WaveMonster()
         {
-            if (monsterCount < monsterByWave && monsterTimer.elapsed())
+            if (MonsterDB.monsterCount < MonsterDB.monsterByWave && MonsterDB.monsterTimer.elapsed())
             {
-                monsterFilter.Add( (EMonster) (wave % 9) );
-                monsterCount++;
-                monsterTimer.restart();
+                monsterFilter.Add( (EMonster) (MonsterDB.wave % 9) );
+                MonsterDB.monsterCount++;
+                MonsterDB.monsterTimer.restart();
             }
 
-            if (monsterCount == monsterByWave && !waveTimer.hasStart && MonsterFilter.liste.Count == 0)
+            if (MonsterDB.monsterCount == MonsterDB.monsterByWave && !MonsterDB.waveTimer.hasStart && MonsterFilter.liste.Count == 0)
             {
-                waveTimer.restart();
+                MonsterDB.waveTimer.restart();
+                StatsDB.playerWave++;
             }
 
-            if (waveTimer.elapsed() && waveTimer.hasStart)
+            if (MonsterDB.waveTimer.elapsed() && MonsterDB.waveTimer.hasStart)
             {
-                wave++;
-                monsterCount = 0;
-                monsterByWave += 2;
-                waveTimer.stop();
+                MonsterDB.wave++;
+                MonsterDB.monsterCount = 0;
+                MonsterDB.monsterByWave += 2;
+                MonsterDB.waveTimer.stop();
             }
         }
     }

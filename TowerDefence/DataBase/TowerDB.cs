@@ -19,5 +19,28 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("Tower/Tower/TowerSpecial2"),
         };
 
+        // Cout en OR
+        public static List<int> tower_or = new List<int>()
+        {
+            100,
+            100,
+            100,
+            150,
+            150,
+            200,
+            200
+        };
+        // Cout en Wood
+        public static List<int> tower_wood = new List<int>()
+        {
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+        };
+
     }
 }

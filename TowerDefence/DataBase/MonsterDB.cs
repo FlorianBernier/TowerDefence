@@ -8,12 +8,11 @@ namespace TowerDefence
     public static class MonsterDB
     {
         // Wave
-        public static int wave = 1;
-        public static int monsterByWave = 20;
+        public static int wave = 0;
+        public static int monsterByWave = 10;
         public static int monsterCount = 0;
-        public static TimerMiliseconde waveTimer = new TimerMiliseconde(500);
-        public static TimerMiliseconde monsterTimer = new TimerMiliseconde(5000);
-
+        public static TimerMiliseconde monsterTimer = new TimerMiliseconde(500);
+        public static TimerMiliseconde waveTimer = new TimerMiliseconde(5000);
 
         // Position
         public static Vector2 start_pos = new Vector2(3*Map.tileWidth + Map.offsetMap.X, 1*Map.tileHeight + Map.offsetMap.Y);
@@ -37,7 +36,7 @@ namespace TowerDefence
         // Speed
         public static List<int> speed = new List<int>()
         {
-            2, 
+            10, 
             3, 
             2,
             4,

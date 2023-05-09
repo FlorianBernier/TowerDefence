@@ -22,24 +22,33 @@ namespace TowerDefence
             {
                 case ETower.FIRE:
                     this.liste.Add(new TowerFire(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[0];
                     break;
                 case ETower.ICE:
                     this.liste.Add(new TowerIce(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[1];
                     break;
                 case ETower.POISON:
                     this.liste.Add(new TowerPoison(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[2];
                     break;
                 case ETower.FLY:
                     this.liste.Add(new TowerFly(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[3];
                     break;
                 case ETower.EARTH:
                     this.liste.Add(new TowerEarth(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[4];
                     break;
                 case ETower.SPECIAL1:
                     this.liste.Add(new TowerSpecial1(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[5];
+                    StatsDB.playerWood = StatsDB.playerWood - TowerDB.tower_wood[5];
                     break;
                 case ETower.SPECIAL2:
                     this.liste.Add(new TowerSpecial2(pos));
+                    StatsDB.playerOR = StatsDB.playerOR - TowerDB.tower_or[6];
+                    StatsDB.playerWood = StatsDB.playerWood - TowerDB.tower_wood[6];
                     break;
                 default:
                     throw new Exception("TowerFilter : ERROR TYPE INCONNU");

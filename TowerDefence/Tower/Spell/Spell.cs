@@ -1,45 +1,38 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TowerDefence
 {
     public abstract class Spell : ISpell
     {
         public ESpell type;
-        public Vector2 position;
+        public Vector2 spellPos;
+        public Vector2 spellPosOffset;
         public Rectangle spellRect;
-        private Vector2 posOffset;
         private Vector2 velocity;
-        public int competence = -1;
         
+
 
         public Spell(Vector2 pos) 
         {
-            this.position = pos;
-            posOffset = new Vector2(position.X * 64 + (int)Map.offsetMap.X+32-8, position.Y * 64 + (int)Map.offsetMap.Y+32-8);
-            spellRect = new Rectangle((int)posOffset.X, (int)posOffset.Y, 16, 16);
+            this.spellPos = pos;
+            spellPosOffset = new Vector2(spellPos.X * 64 + (int)Map.offsetMap.X+32-8, spellPos.Y * 64 + (int)Map.offsetMap.Y+32-8);
+            spellRect = new Rectangle((int)spellPosOffset.X, (int)spellPosOffset.Y, 16, 16);
         }
 
         public void UpdateSpell()
         {
-            //Vector2 direction = Vector2.Normalize(Monster.pos - posOffset);
-            //float distance = Vector2.Distance(Monster.pos, posOffset);
-            //velocity = direction * (SpellDB.spell_speed[(int)type] * (distance / 100f));
-
             velocity.Y = SpellDB.spell_speed[(int)type];
+            spellPosOffset += velocity;
 
-            posOffset -= velocity;
+            
         }
+        
 
         public void DrawSpell()
         {
-            MainGame.spriteBatch.Draw(SpellDB.spell_texture[(int)type], posOffset, Color.White);
+            MainGame.spriteBatch.Draw(SpellDB.spell_texture[(int)type], spellPosOffset, Color.White);
 
         }
-
     }
 }

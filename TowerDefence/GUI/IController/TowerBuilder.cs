@@ -35,6 +35,7 @@ namespace TowerDefence
                     .Add(
                         (ETower)type,
                         new Vector2(caseClickedX, caseClickedY));
+                
             }
         }
 

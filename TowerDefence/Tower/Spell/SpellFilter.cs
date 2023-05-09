@@ -43,14 +43,20 @@ namespace TowerDefence
                 default:
                     throw new Exception("SpellFilter : ERROR TYPE INCONNU");
             }
+
             return this;
         }
+
+        
+
 
         public SpellFilter all()
         {
             filtred = liste;
             return this;
         }
+
+        
 
         public SpellFilter UpdateSpell()
         {
