@@ -9,24 +9,11 @@ namespace TowerDefence
     public enum ESpell
     {
         FIRE,
-        
-
         ICE,
-      
-
         POISON,
-       
-
         FLY,
-     
-
         EARTH,
-      
-
         SPECIAL1,
-    
-
         SPECIAL2,
-      
     }
 }

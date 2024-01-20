@@ -4,23 +4,24 @@ using System.Collections.Generic;
 
 namespace TowerDefence
 {
+    // Classe statique contenant les données des statistiques du joueur
     public static class StatsDB
     {
-        // INFOS
+        // Informations sur le joueur
 
-        // playerPV
+        // Points de vie du joueur
         public static int playerPV = 100;
         public static Vector2 posPlayerPV = new Vector2(940, 20);
 
-        // playerOR
+        // Or du joueur
         public static int playerOR = 500;
         public static Vector2 posPlayerOR = new Vector2(1100, 15);
 
-        // playerWood
+        // Bois du joueur
         public static int playerWood = 1;
         public static Vector2 posPlayerWood = new Vector2(1420, 15);
 
-        // playerWave
+        // Vague actuelle du joueur
         public static int playerWave = 1;
         public static Vector2 posPlayerWave = new Vector2(1720, 15);
 
@@ -29,24 +30,22 @@ namespace TowerDefence
 
         // CONTROLLER //----------------------------------------------------------------------------------//
 
-        // Contener
+        // Conteneur
         public static Texture2D container_texture = MainGame.content.Load<Texture2D>("GUI/Contener");
         public static Vector2 container_pos = new Vector2(5, 695);
 
-        // Afficher
+        // Affichage
         public static Texture2D display_texture = MainGame.content.Load<Texture2D>("GUI/Afficher");
         public static Vector2 display_pos = new Vector2(0, 50);
 
-        // Return Builder
+        // Retour au constructeur
         public static Texture2D return_builder_texture = MainGame.content.Load<Texture2D>("GUI/ReturnBuilder");
         public static Vector2 return_builder_pos = new Vector2(container_pos.X+208, container_pos.Y+208);
 
-        // UpgradeActive
+        // Amélioration active
         public static Texture2D upgrade_active_texture = MainGame.content.Load<Texture2D>("GUI/UpgradeActive");
 
-        // CONTROLLER //-----------------------------------------------------------------------------------//
-
-        // Infos Texture
+        // Informations sur les textures
         public static List<Texture2D> infos_fire_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("GUI/Afficher/Portrait/Fire"),
@@ -104,7 +103,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("GUI/Afficher/Competance3/Special2"),
         };
 
-        // Infos Pos
+        // Informations sur les positions des textures
         public static List<Vector2> infos_texture_pos = new List<Vector2>()
         {
             new Vector2(display_pos.X + 63, display_pos.Y + 40),
@@ -116,7 +115,7 @@ namespace TowerDefence
 
         // TOWER BUILDER //---------------------------------------------------------------------------//
 
-        // Builder Texture
+        // Informations sur les textures du constructeur de tours
         public static List<Texture2D> builder_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("GUI/TowerBuilder/Fire"),
@@ -128,7 +127,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("GUI/TowerBuilder/Special2"),
         };
 
-        // Builder Pos
+        // Informations sur les positions du constructeur de tours
         public static List<Vector2> builder_pos = new List<Vector2>()
         {
             new Vector2(container_pos.X + 6, container_pos.Y + 6),
@@ -143,7 +142,7 @@ namespace TowerDefence
 
         // TOWER UPGRADE //--------------------------------------------------------------------//
 
-        // Upgrade Texture
+        // Informations sur les textures des améliorations de tours
         public static List<Texture2D> upgrade_fire_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/FireCompetence1"),
@@ -187,7 +186,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("GUI/TowerUpgrade/Special2Competence3"),
         };
 
-        // Upgrade Pos
+        // Informations sur les positions des améliorations de tours
         public static List<Vector2> upgrade_pos = new List<Vector2>()
         {
             new Vector2(container_pos.X + 6, container_pos.Y + 6),
@@ -196,13 +195,11 @@ namespace TowerDefence
         };
 
 
-
-
-        //---------------------------------------- TEXTE -------------------------------------------// 
+        // TEXTE //------------------------------------------------------------------------------------// 
 
         // CONTROLLER //----------------------------------------------------------------------------//
 
-        // Display
+        // Affichage
         public static List<string> infos_fire_texte = new List<string>()
         {
             "MAGE DE FEU",
@@ -253,6 +250,7 @@ namespace TowerDefence
             "Avada kedavra",
         };
 
+        // Positions du texte
         public static List<Vector2> infos_texte_pos = new List<Vector2>()
         {
             new Vector2(display_pos.X + 6+60, display_pos.Y + 325+15),

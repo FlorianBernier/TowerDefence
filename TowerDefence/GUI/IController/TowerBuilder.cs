@@ -8,25 +8,28 @@ namespace TowerDefence
 {
     public class TowerBuilder : Controller
     {
+        // Type de la tour en construction
         public EBuilder type;
 
+        // Indique si une tour doit être affichée à la position de la souris
         public bool drawTowerOnMouse = false;
+        // Indique si le curseur de la souris doit être transparent
         public bool cursorTransparent = false;
 
-
+        // Constructeur de la classe TowerBuilder
         public TowerBuilder()
         {
 
         }
 
-        
-        // CheckClic
+        // Méthode qui sélectionne le bouton actuel à dessiner sur la grille
         public void SelectCurrentButtonToDraw()
         {
             drawTowerOnMouse = type == (EBuilder)boutonCliqueIndex ? !drawTowerOnMouse : false;
             type = (EBuilder)boutonCliqueIndex;
         }
 
+        // Méthode qui ajoute une tour à la case actuelle si possible
         public void AddTowerCurrentCase()
         {
             if (drawTowerOnMouse)
@@ -39,9 +42,12 @@ namespace TowerDefence
             }
         }
 
+        // Implémentation de la méthode abstraite UpdateGUI de la classe parent Controller
         public override void UpdateGUI()
         {
             MouseState mouseState = Mouse.GetState();
+
+            // Vérifie si un bouton est cliqué dans la barre de construction
             if (mouseState.LeftButton == ButtonState.Pressed &&
                 mouseState.LeftButton != oldMouseState.LeftButton)
             {
@@ -60,8 +66,8 @@ namespace TowerDefence
                     }
                 }
             }
-            
-            
+
+            // Vérifie si la souris est cliquée sur la grille du jeu
             for (int x = 0; x < Map.mapWidth; x++)
             {
                 for (int y = 0; y < Map.mapHeight; y++)
@@ -88,7 +94,7 @@ namespace TowerDefence
         }
 
 
-        // Draw GUI
+        // Méthode qui dessine le conteneur de la barre de construction
         public void DrawContainer()
         {
             for (int i = 0; i < StatsDB.builder_texture.Count; i++)
@@ -97,6 +103,7 @@ namespace TowerDefence
             }
         }
 
+        // Méthode qui dessine la tour à la position de la souris si nécessaire
         public void DrawTowerOnMouse()
         {
             if (drawTowerOnMouse)
@@ -107,26 +114,30 @@ namespace TowerDefence
 
                 if (!cursorTransparent)
                 {
+                    // Change le curseur de la souris pour un curseur transparent
                     Mouse.SetCursor(MouseCursor.FromTexture2D(MainGame.mouseTransparent, 0, 0));
                     cursorTransparent = true;
                 }
             }
             else
             {
+                // Rétablit le curseur de la souris par défaut
                 Mouse.SetCursor(MouseCursor.Arrow);
                 cursorTransparent = false;
             }
         }
 
+        // Implémentation de la méthode abstraite DrawGUI de la classe parent Controller
         public override void DrawGUI()
         {
-            // Container
+            // Dessine le conteneur et l'affichage
             MainGame.spriteBatch.Draw(StatsDB.container_texture, StatsDB.container_pos, Color.White);
-            // Display
             MainGame.spriteBatch.Draw(StatsDB.display_texture, StatsDB.display_pos, Color.White);
 
+            // Dessine les boutons de la barre de construction
             DrawContainer();
 
+            // Si un bouton est sélectionné, affiche les informations correspondantes
             if (boutonCliqueIndex != -1)
             {
                 EBuilder type = (EBuilder)boutonCliqueIndex;
@@ -158,6 +169,7 @@ namespace TowerDefence
                         break;
                 }
             }
+            // Dessine la tour à la position de la souris si nécessaire
             DrawTowerOnMouse();
         }
     }

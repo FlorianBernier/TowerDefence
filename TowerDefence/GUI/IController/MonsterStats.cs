@@ -10,10 +10,7 @@ namespace TowerDefence
     public class MonsterStats //: Controller
     {
         //public override void DrawButton()
-        
 
         //public override void cafaitca()
-       
-
     }
 }

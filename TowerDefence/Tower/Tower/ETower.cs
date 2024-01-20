@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
+    // Énumération représentant les différents types de tours disponibles dans le jeu
     public enum ETower
     {
         FIRE = 0,

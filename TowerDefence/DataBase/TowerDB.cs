@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace TowerDefence
 {
+    // Classe statique contenant les données des tours
     public static class TowerDB
     {
-        // TOWER
-
+        // Liste des textures des différentes tours
         public static List<Texture2D> tower_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("Tower/Tower/TowerFire"),
@@ -19,7 +19,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("Tower/Tower/TowerSpecial2"),
         };
 
-        // Cout en OR
+        // Coût en OR de chaque tour
         public static List<int> tower_or = new List<int>()
         {
             100,
@@ -30,7 +30,7 @@ namespace TowerDefence
             200,
             200
         };
-        // Cout en Wood
+        // Coût en bois de chaque tour
         public static List<int> tower_wood = new List<int>()
         {
             0,

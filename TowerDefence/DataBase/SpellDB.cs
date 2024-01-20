@@ -4,13 +4,10 @@ using System.Numerics;
 
 namespace TowerDefence
 {
+    // Classe statique contenant les données des sorts
     public static class SpellDB
     {
-
-
-        // SPELL
-
-        // Spell img
+        // Liste des textures des sorts
         public static List<Texture2D> spell_texture = new List<Texture2D>()
         {
             MainGame.content.Load<Texture2D>("Tower/Spell/Spell/SpellFire"),
@@ -22,7 +19,7 @@ namespace TowerDefence
             MainGame.content.Load<Texture2D>("Tower/Spell/Spell/SpellSpecial2"),
         };
 
-        // Spell speed
+        // Liste des vitesses des sorts
         public static List<int> spell_speed = new List<int>()
         {
             10,
@@ -33,6 +30,5 @@ namespace TowerDefence
             2,
             2,
         };
-
     }
 }

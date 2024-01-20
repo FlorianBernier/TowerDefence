@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TowerDefence
 {
+    // Énumération des types de constructeurs de tours
     public enum EBuilder
     {
         FIRE_BUILD = 0,
